@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useLanguage } from "./LanguageContext";
 
 const images = [
   {
@@ -26,6 +27,7 @@ const images = [
 ];
 
 export default function PhotoGallery() {
+  const { t } = useLanguage();
   return (
     <section className="w-full py-12 md:py-24 bg-slate-50 dark:bg-slate-900">
       <div className="container max-w-7xl mx-auto px-4 lg:px-8">
@@ -36,7 +38,7 @@ export default function PhotoGallery() {
             viewport={{ once: true }}
             className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-slate-900 dark:text-white"
           >
-            Mühit və İcma
+            {t("gallery.title")}
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -45,7 +47,7 @@ export default function PhotoGallery() {
             transition={{ delay: 0.1 }}
             className="text-base md:text-lg text-slate-600 dark:text-slate-400"
           >
-            Gələcəyi şəkilləndirən tələbələrimiz və gündəlik kampus həyatımız.
+            {t("gallery.desc")}
           </motion.p>
         </div>
 

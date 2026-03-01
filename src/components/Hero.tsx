@@ -3,8 +3,10 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Leaf } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "./LanguageContext";
 
 export default function Hero() {
+  const { t } = useLanguage();
   return (
     <section className="relative w-full min-h-[90vh] flex flex-col items-center justify-center overflow-hidden py-12 md:py-20 lg:py-24">
       {/* Background Campus Image Overlay */}
@@ -21,7 +23,7 @@ export default function Hero() {
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8 bg-white/50 dark:bg-slate-800/50"
         >
           <Leaf className="w-4 h-4 text-primary" />
-          <span className="text-sm font-medium tracking-wide text-primary">Sumqayıt Dövlət Universiteti</span>
+          <span className="text-sm font-medium tracking-wide text-primary">{t("hero.badge")}</span>
         </motion.div>
 
         <motion.h1
@@ -29,9 +31,8 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
           className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight mb-4 md:mb-6 text-slate-900 dark:text-white"
-        >
-          SDU: Gələcəyi Bu <br className="hidden md:block" /> Gündən Şəkilləndiririk
-        </motion.h1>
+          dangerouslySetInnerHTML={{ __html: t("hero.title") }}
+        />
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -39,7 +40,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
           className="text-base sm:text-lg md:text-xl text-slate-700 dark:text-slate-300 max-w-2xl mx-auto mb-8 md:mb-10 leading-relaxed font-medium"
         >
-          Real məlumatlara əsaslanan dayanıqlı həllərlə kampusumuzu və icmamızı daha yaxşı gələcək üçün necə transformasiya etdiyimizi kəşf edin.
+          {t("hero.desc")}
         </motion.p>
 
         <motion.div
@@ -53,7 +54,7 @@ export default function Hero() {
             "bg-primary hover:bg-primary-light hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/20",
             "flex items-center justify-center gap-2 cursor-pointer"
           )}>
-            <span className="relative z-10">Təsirimizlə Tanış Olun</span>
+            <span className="relative z-10">{t("hero.explore")}</span>
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform relative z-10" />
             <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out" />
           </button>
@@ -63,7 +64,7 @@ export default function Hero() {
             "bg-white/50 dark:bg-slate-800/50 backdrop-blur-md border border-slate-200 dark:border-slate-700",
             "hover:bg-white dark:hover:bg-slate-800 hover:-translate-y-1 hover:shadow-lg text-slate-700 dark:text-slate-200 cursor-pointer"
           )}>
-            Təşəbbüslərə Qoşulun
+            {t("hero.join")}
           </button>
         </motion.div>
       </div>

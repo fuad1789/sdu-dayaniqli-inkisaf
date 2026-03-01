@@ -4,8 +4,10 @@ import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Leaf, Zap, Car, Flame, TreePine } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "./LanguageContext";
 
 export default function CarbonCalculator() {
+  const { t } = useLanguage();
   const [electricity, setElectricity] = useState(300);
   const [transport, setTransport] = useState(500);
   const [gas, setGas] = useState(100);
@@ -37,7 +39,7 @@ export default function CarbonCalculator() {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-200 dark:border-emerald-900/50 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 mb-6"
           >
             <Leaf className="w-4 h-4" />
-            <span className="text-xs font-bold uppercase tracking-wider">İnteraktiv Alət</span>
+            <span className="text-xs font-bold uppercase tracking-wider">{t("calc.badge")}</span>
           </motion.div>
           
           <motion.h2 
@@ -46,7 +48,7 @@ export default function CarbonCalculator() {
             viewport={{ once: true }}
             className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-slate-900 dark:text-white"
           >
-            Karbon İzi Kalkulyatoru
+            {t("calc.title")}
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -55,7 +57,7 @@ export default function CarbonCalculator() {
             transition={{ delay: 0.1 }}
             className="text-base md:text-lg text-slate-600 dark:text-slate-400"
           >
-            Aylıq istehlak vərdişlərinizin təbiətə təsirini ölçün və onu sıfırlamaq üçün neçə ağaca ehtiyacınız olduğunu öyrənin.
+            {t("calc.desc")}
           </motion.p>
         </div>
 
@@ -69,7 +71,7 @@ export default function CarbonCalculator() {
             transition={{ duration: 0.5 }}
             className="w-full lg:w-3/5 rounded-3xl p-6 md:p-8 lg:p-10 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 shadow-sm"
           >
-            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-8">Aylıq Göstəricilər</h3>
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-8">{t("calc.monthly")}</h3>
             
             <div className="space-y-6 md:space-y-8">
               {/* Electricity Slider */}
@@ -80,8 +82,8 @@ export default function CarbonCalculator() {
                       <Zap className="w-4 h-4 md:w-5 md:h-5" />
                     </div>
                     <div>
-                      <label htmlFor="elec" className="block text-sm font-bold text-slate-900 dark:text-white leading-tight">Elektrik Sərfiyyatı</label>
-                      <span className="text-[10px] md:text-xs font-medium text-slate-500">Aylıq, kWh</span>
+                      <label htmlFor="elec" className="block text-sm font-bold text-slate-900 dark:text-white leading-tight">{t("calc.elec.title")}</label>
+                      <span className="text-[10px] md:text-xs font-medium text-slate-500">{t("calc.elec.unit")}</span>
                     </div>
                   </div>
                   <div className="text-lg md:text-xl font-bold px-2 py-0.5 md:px-3 md:py-1 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-900 dark:text-white shrink-0">
@@ -107,8 +109,8 @@ export default function CarbonCalculator() {
                       <Car className="w-4 h-4 md:w-5 md:h-5" />
                     </div>
                     <div>
-                      <label htmlFor="trans" className="block text-sm font-bold text-slate-900 dark:text-white leading-tight">Nəqliyyat İzləri</label>
-                      <span className="text-[10px] md:text-xs font-medium text-slate-500">Aylıq, km</span>
+                      <label htmlFor="trans" className="block text-sm font-bold text-slate-900 dark:text-white leading-tight">{t("calc.trans.title")}</label>
+                      <span className="text-[10px] md:text-xs font-medium text-slate-500">{t("calc.trans.unit")}</span>
                     </div>
                   </div>
                   <div className="text-lg md:text-xl font-bold px-2 py-0.5 md:px-3 md:py-1 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-900 dark:text-white shrink-0">
@@ -134,8 +136,8 @@ export default function CarbonCalculator() {
                       <Flame className="w-4 h-4 md:w-5 md:h-5" />
                     </div>
                     <div>
-                      <label htmlFor="gas" className="block text-sm font-bold text-slate-900 dark:text-white leading-tight">Təbii Qaz</label>
-                      <span className="text-[10px] md:text-xs font-medium text-slate-500">Aylıq, m³</span>
+                      <label htmlFor="gas" className="block text-sm font-bold text-slate-900 dark:text-white leading-tight">{t("calc.gas.title")}</label>
+                      <span className="text-[10px] md:text-xs font-medium text-slate-500">{t("calc.gas.unit")}</span>
                     </div>
                   </div>
                   <div className="text-lg md:text-xl font-bold px-2 py-0.5 md:px-3 md:py-1 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-900 dark:text-white shrink-0">
@@ -168,7 +170,7 @@ export default function CarbonCalculator() {
             
             <div className="relative z-10 text-center mb-8 md:mb-10">
               <span className="inline-block px-3 py-1 bg-white/10 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-300 mb-4 md:mb-6">
-                Ümumi Emissiya
+                {t("calc.total.badge")}
               </span>
               <div className="flex items-baseline justify-center gap-2 mb-2">
                 <motion.span 
@@ -182,7 +184,7 @@ export default function CarbonCalculator() {
                 </motion.span>
                 <span className="text-xl md:text-2xl font-bold text-slate-400">kq</span>
               </div>
-              <p className="text-slate-400 text-xs md:text-sm font-medium">Bu sizin təxmini aylıq karbon izinizi (CO₂) təmsil edir.</p>
+              <p className="text-slate-400 text-xs md:text-sm font-medium">{t("calc.total.desc")}</p>
             </div>
 
             <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-600 to-transparent mb-10" />
@@ -199,7 +201,7 @@ export default function CarbonCalculator() {
                </div>
                
                <div className="relative z-10 flex-col flex">
-                 <p className="text-xs md:text-sm font-bold text-slate-300 mb-1 leading-tight">Sıfırlamaq üçün lazım olan ağac</p>
+                 <p className="text-xs md:text-sm font-bold text-slate-300 mb-1 leading-tight">{t("calc.tree.title")}</p>
                  <div className="flex items-baseline gap-1.5 md:gap-2">
                    <motion.span 
                      className="text-3xl md:text-4xl font-extrabold text-white leading-none"
@@ -210,7 +212,7 @@ export default function CarbonCalculator() {
                    >
                      {treesNeeded}
                    </motion.span>
-                   <span className="text-slate-400 text-[10px] md:text-sm font-medium">ədəd (illik)</span>
+                   <span className="text-slate-400 text-[10px] md:text-sm font-medium">{t("calc.tree.unit")}</span>
                  </div>
                </div>
             </div>

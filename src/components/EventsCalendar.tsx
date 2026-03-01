@@ -3,44 +3,47 @@
 import { motion } from "framer-motion";
 import { Calendar, MapPin, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-const events = [
-  {
-    id: 1,
-    title: "Yaşıl Kampus Günü: Kütləvi Ağacəkmə",
-    date: "15",
-    month: "Okt",
-    time: "10:00 - 14:00",
-    location: "Qeydiyyat Mərkəzi qarşısı",
-    category: "Aksiya",
-    color: "bg-emerald-500",
-    textColor: "text-emerald-500",
-  },
-  {
-    id: 2,
-    title: "Təkrar Emal Seminarı: Gələcək Bizim Əlimizdə",
-    date: "22",
-    month: "Okt",
-    time: "14:00 - 15:30",
-    location: "Akt Zalı",
-    category: "Təhsil",
-    color: "bg-cyan-500",
-    textColor: "text-cyan-500",
-  },
-  {
-    id: 3,
-    title: "Alternativ Enerji Mənbələri Sərgisi",
-    date: "05",
-    month: "Noy",
-    time: "09:00 - 17:00",
-    location: "Əsas Korpus Foye",
-    category: "Sərgi",
-    color: "bg-amber-500",
-    textColor: "text-amber-500",
-  },
-];
+import { useLanguage } from "./LanguageContext";
 
 export default function EventsCalendar() {
+  const { t } = useLanguage();
+
+  const events = [
+    {
+      id: 1,
+      title: t("events.event1.title"),
+      date: "15",
+      month: t("events.event1.month"),
+      time: "10:00 - 14:00",
+      location: t("events.event1.loc"),
+      category: t("events.event1.cat"),
+      color: "bg-emerald-500",
+      textColor: "text-emerald-500",
+    },
+    {
+      id: 2,
+      title: t("events.event2.title"),
+      date: "22",
+      month: t("events.event2.month"),
+      time: "14:00 - 15:30",
+      location: t("events.event2.loc"),
+      category: t("events.event2.cat"),
+      color: "bg-cyan-500",
+      textColor: "text-cyan-500",
+    },
+    {
+      id: 3,
+      title: t("events.event3.title"),
+      date: "05",
+      month: t("events.event3.month"),
+      time: "09:00 - 17:00",
+      location: t("events.event3.loc"),
+      category: t("events.event3.cat"),
+      color: "bg-amber-500",
+      textColor: "text-amber-500",
+    },
+  ];
+
   return (
     <section id="events" className="w-full py-12 md:py-24 bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800">
       <div className="container max-w-7xl mx-auto px-4 lg:px-8">
@@ -48,10 +51,10 @@ export default function EventsCalendar() {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-16 gap-6">
           <div className="max-w-2xl text-left">
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-slate-900 dark:text-white">
-              Qarşıdan Gələn Tədbirlər
+              {t("events.title")}
             </h2>
             <p className="text-base md:text-lg text-slate-600 dark:text-slate-400">
-              SDU-nun yaşıllaşdırma və dayanıqlı inkişaf fəaliyyətlərinə aktiv qoşulun. Hər addım bir fərq yaradır.
+              {t("events.desc")}
             </p>
           </div>
           <motion.button 
@@ -59,7 +62,7 @@ export default function EventsCalendar() {
             whileTap={{ scale: 0.95 }}
             className="flex items-center justify-center gap-2 px-6 py-3.5 md:py-3 rounded-full border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white font-medium hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors whitespace-nowrap w-full md:w-auto"
           >
-            Bütün Təqvimi Gör
+            {t("events.view_all")}
             <Calendar className="w-4 h-4 ml-1" />
           </motion.button>
         </div>
@@ -111,7 +114,7 @@ export default function EventsCalendar() {
               {/* Minimal Action */}
               <div className="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800/60 flex items-center justify-between">
                 <span className="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-primary transition-colors">
-                  Qeydiyyatdan Keç
+                  {t("events.register")}
                 </span>
                 <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-primary group-hover:translate-x-1 transition-transform" />
               </div>

@@ -4,8 +4,10 @@ import { motion } from "framer-motion";
 import { Facebook, Twitter, Linkedin, Leaf } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "./LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
   return (
     <footer className="w-full bg-slate-100 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 pb-8 lg:pb-12 pt-16">
       <div className="container max-w-7xl mx-auto px-4 lg:px-8">
@@ -63,7 +65,7 @@ export default function Footer() {
 
         {/* Bottom Banner */}
         <div className="flex flex-col-reverse md:flex-row items-center justify-between pt-8 border-t border-slate-200 dark:border-slate-800 text-sm xl:text-base text-slate-500 dark:text-slate-400 gap-4 md:gap-0">
-          <p className="text-center md:text-left">© 2026 Sumqayıt Dövlət Universiteti. Bütün hüquqlar qorunur.</p>
+          <p className="text-center md:text-left">© 2026 {t("hero.badge")}. {t("footer.rights")}</p>
           <div className="mt-2 md:mt-0 flex space-x-6">
             <Link href="#" className="hover:text-slate-900 dark:hover:text-white transition-colors">Ana Səhifə</Link>
             <Link href="#" className="hover:text-slate-900 dark:hover:text-white transition-colors">Dəstək</Link>

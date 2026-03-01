@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import { Zap, Droplet, Leaf, Recycle, TrendingDown } from "lucide-react";
+import { useLanguage } from "./LanguageContext";
 
 const data = [
   { name: "Jul", energy: 400, savings: 240 },
@@ -14,36 +15,36 @@ const data = [
   { name: "Jan", energy: 349, savings: 430 },
 ];
 
-const stats = [
+const getStats = (t: (key: string) => string) => [
   {
-    title: "Karbon Azalması",
+    title: t("impact.carbon.title"),
     value: "1,240",
-    unit: "Ton",
+    unit: t("impact.carbon.unit"),
     icon: Leaf,
     trend: "Keçən ilə nisbətən -12%",
     color: "text-emerald-500",
     bg: "bg-emerald-500/10",
   },
   {
-    title: "Qənaət Edilən Enerji",
+    title: t("impact.energy.title"),
     value: "850",
-    unit: "MWh",
+    unit: t("impact.energy.unit"),
     icon: Zap,
     trend: "Keçən ilə nisbətən +18%",
     color: "text-amber-500",
     bg: "bg-amber-500/10",
   },
   {
-    title: "Suya Qənaət",
+    title: t("impact.water.title"),
     value: "4.5M",
-    unit: "Litr",
+    unit: t("impact.water.unit"),
     icon: Droplet,
     trend: "Keçən ilə nisbətən -5%",
     color: "text-cyan-500",
     bg: "bg-cyan-500/10",
   },
   {
-    title: "Təkrar Emal Tör-töküntüsü",
+    title: t("impact.waste.title"),
     value: "75",
     unit: "%",
     icon: Recycle,
@@ -54,6 +55,9 @@ const stats = [
 ];
 
 export default function ImpactDashboard() {
+  const { t } = useLanguage();
+  const stats = getStats(t);
+
   return (
     <section id="impact" className="w-full py-12 md:py-24 bg-white dark:bg-slate-950 overflow-hidden">
       <div className="container max-w-7xl mx-auto px-4 lg:px-8">
@@ -62,10 +66,10 @@ export default function ImpactDashboard() {
           <div className="lg:col-span-1 flex flex-col gap-4">
             <div className="mb-2">
               <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-2 text-slate-900 dark:text-white">
-                Ekoloji Təsir
+                {t("impact.title")}
               </h2>
               <p className="text-slate-600 dark:text-slate-400 text-sm">
-                2040-cı ilə qədər dayanıqlı, sıfır emissiyalı kampus istiqamətindəki səyahətimizi izləyən real vaxt göstəriciləri.
+                {t("impact.desc")}
               </p>
             </div>
             <div className="grid grid-cols-2 gap-3 lg:gap-4 flex-grow">
@@ -112,8 +116,8 @@ export default function ImpactDashboard() {
           >
             <div className="mb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <h3 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white leading-tight">Enerji Qənaəti Trendi</h3>
-                <p className="text-slate-500 text-xs md:text-sm">Son 6 ay ərzində MWh ilə aylıq müqayisə</p>
+                <h3 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white leading-tight">{t("impact.chart.title")}</h3>
+                <p className="text-slate-500 text-xs md:text-sm">{t("impact.chart.desc")}</p>
               </div>
               <motion.button 
                 whileHover={{ scale: 1.05 }}

@@ -4,28 +4,30 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-const faqs = [
-  {
-    question: "DİM (Dayanıqlı İnkişaf Məqsədləri) nədir?",
-    answer: "Dayanıqlı İnkişaf Məqsədləri BMT tərəfindən irəli sürülmüş yoxsulluğun aradan qaldırılması, planetin qorunması və hamı üçün sülh və rifahın təmin edilməsini hədəfləyən 17 qlobal məqsəddir. SDU olaraq biz bu məqsədlərə öz siyasət və tədqiqatlarımızla güclü dəstək veririk."
-  },
-  {
-    question: "Tələbələr ekoloji layihələrə necə qoşula bilər?",
-    answer: "Tələbələrimiz il boyu keçirilən 'Yaşıl Kampus' ağacəkmə aksiyalarına, təkrar emal emalatxanalarına və Dayanıqlılıq İnkubatoruna birbaşa portalımızdakı Tədbirlər Təqvimi bölməsindən qeydiyyatdan keçərək qoşula bilərlər."
-  },
-  {
-    question: "Universitetin 2030 hədəfi nədir?",
-    answer: "Əsas hədəfimiz 2030-cu ilə qədər kampus daxilində tam sıfır karbon emissiyasına (Net-Zero) nail olmaq, bərpa olunan enerjiyə keçid etmək və qlobal dayanıqlılıq üzrə reytinqlərdə qabaqcıl ali təhsil müəssisələrindən birinə çevrilməkdir."
-  },
-  {
-    question: "Təkrar emal qutuları kampusda harada yerləşir?",
-    answer: "Əsas tədris binalarının foyelərində, kitabxanada, yeməkxana ərazisində və yataqxanaların girişində xüsusi qeyd edilmiş ağıllı təkrar emal qutuları (kağız, plastik və ümumi tullantı) mövcuddur."
-  }
-];
+import { useLanguage } from "./LanguageContext";
 
 export default function FAQ() {
+  const { t } = useLanguage();
   const [openIndex, setOpenIndex] = useState<number | null>(0); // Default open first
+
+  const faqs = [
+    {
+      question: t("faq.q1"),
+      answer: t("faq.a1")
+    },
+    {
+      question: t("faq.q2"),
+      answer: t("faq.a2")
+    },
+    {
+      question: t("faq.q3"),
+      answer: t("faq.a3")
+    },
+    {
+      question: t("faq.q4"),
+      answer: t("faq.a4")
+    }
+  ];
 
   return (
     <section className="w-full py-24 bg-white dark:bg-slate-950">
@@ -37,10 +39,10 @@ export default function FAQ() {
             viewport={{ once: true }}
             className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-slate-900 dark:text-white"
           >
-            Tez-tez Verilən Suallar
+            {t("faq.title")}
           </motion.h2>
           <p className="text-slate-600 dark:text-slate-400 text-lg">
-            Hədəflərimiz və təşəbbüslərimiz haqqında ən çox maraqlanılan mövzular.
+            {t("faq.desc")}
           </p>
         </div>
 

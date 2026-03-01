@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import StrategicFocusAreas from "@/components/StrategicFocusAreas";
 import SdgGrid from "@/components/SdgGrid";
 import ImpactDashboard from "@/components/ImpactDashboard";
 import BentoActivities from "@/components/BentoActivities";
@@ -13,6 +14,7 @@ export default function Home() {
   return (
     <main style={{overflowX: "hidden"}} className="flex min-h-screen flex-col items-center justify-between ">
       <Hero />
+      <StrategicFocusAreas />
       <SdgGrid />
       <ImpactDashboard />
       <BentoActivities />

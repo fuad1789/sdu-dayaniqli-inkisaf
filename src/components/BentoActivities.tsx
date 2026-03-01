@@ -3,8 +3,10 @@
 import { motion } from "framer-motion";
 import { Download, Users, GraduationCap, Microscope, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "./LanguageContext";
 
 export default function BentoActivities() {
+  const { t } = useLanguage();
   return (
     <section className="w-full py-24 bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
       <div className="container max-w-7xl mx-auto px-4 lg:px-8">
@@ -15,7 +17,7 @@ export default function BentoActivities() {
             viewport={{ once: true }}
             className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-slate-900 dark:text-white"
           >
-            Universitet Təşəbbüsləri
+            {t("bento.title")}
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -24,7 +26,7 @@ export default function BentoActivities() {
             transition={{ delay: 0.1 }}
             className="text-slate-600 dark:text-slate-400 text-lg"
           >
-            Dayanıqlığı siyasətdən tədqiqata və tələbə cəlb edilməsinə qədər kampus həyatının hər bir aspektinə necə inteqrasiya etdiyimizi kəşf edin.
+            {t("bento.desc")}
           </motion.p>
         </div>
 
@@ -48,12 +50,12 @@ export default function BentoActivities() {
               <div className="bg-white/20 backdrop-blur-md self-start p-3 rounded-2xl mb-6 inline-block">
                 <GraduationCap className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
               </div>
-              <h3 className="text-2xl sm:text-3xl font-bold mb-3">Təhsil və Tədris Planı</h3>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-3">{t("bento.card1.title")}</h3>
               <p className="text-emerald-50 text-base sm:text-lg max-w-md">
-                40-dan çox dərəcə proqramı indi BMT-nin Dayanıqlı İnkişaf Məqsədlərinə yönəlmiş inteqrasiya edilmiş kurs işlərini əks etdirir.
+                {t("bento.card1.desc")}
               </p>
               <div className="mt-6 sm:mt-8 flex items-center gap-2 font-medium">
-                <span>Kurslara Baxın</span>
+                <span>{t("bento.card1.link")}</span>
                 <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </div>
             </div>
@@ -75,9 +77,9 @@ export default function BentoActivities() {
               <div className="p-2 bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 rounded-lg w-fit mb-4">
                  <Users className="w-5 h-5" />
               </div>
-              <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2">Sosial Təsir və İnklüzivlik</h3>
+              <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2">{t("bento.card2.title")}</h3>
               <p className="text-slate-600 dark:text-slate-400 text-sm">
-                İcma maarifləndirilməsinə rəhbərlik edən Tələbə Ətraf Mühit Təşəbbüsləri.
+                {t("bento.card2.desc")}
               </p>
             </div>
           </motion.div>
@@ -91,13 +93,13 @@ export default function BentoActivities() {
             className="md:col-span-1 lg:col-span-1 lg:row-span-1 rounded-3xl bg-slate-900 dark:bg-slate-950 p-6 sm:p-8 border border-slate-800 flex flex-col justify-start lg:justify-between gap-5 lg:gap-0 group cursor-pointer hover:bg-slate-800 transition-colors"
           >
             <div>
-              <h3 className="text-white font-bold text-lg sm:text-xl mb-2">Hökumət və Siyasət</h3>
+              <h3 className="text-white font-bold text-lg sm:text-xl mb-2">{t("bento.card3.title")}</h3>
               <p className="text-slate-400 text-sm md:text-xs xl:text-sm">
-                Rəsmi Dayanıqlılıq Strategiyası 2024-2030 sənədimizə daxil olun.
+                {t("bento.card3.desc")}
               </p>
             </div>
             <button className="w-full flex justify-between items-center px-4 py-3 bg-white/10 hover:bg-white/20 rounded-xl text-white transition-colors">
-              <span className="text-xs sm:text-sm font-medium">PDF Yükləyin</span>
+              <span className="text-xs sm:text-sm font-medium">{t("bento.card3.link")}</span>
               <Download className="w-4 h-4" />
             </button>
           </motion.div>
@@ -114,9 +116,9 @@ export default function BentoActivities() {
               <Microscope className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
             <div>
-              <div className="text-[10px] sm:text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5 sm:mb-2 text-left">Ən Son Tədqiqatlar</div>
+              <div className="text-[10px] sm:text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5 sm:mb-2 text-left">{t("bento.card4.badge")}</div>
               <h3 className="text-slate-900 dark:text-white font-bold text-base sm:text-lg leading-tight group-hover:text-primary transition-colors text-left">
-                "Şəhər Mühitlərində Bərpa Olunan Enerji Saxlanmasında Yeniliklər"
+                {t("bento.card4.title")}
               </h3>
             </div>
           </motion.div>
