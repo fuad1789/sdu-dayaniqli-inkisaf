@@ -23,11 +23,11 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: t("nav.gov"), href: "#focus-areas" },
-    { name: t("nav.env"), href: "#focus-areas" },
-    { name: t("nav.soc"), href: "#focus-areas" },
-    { name: t("nav.res"), href: "#focus-areas" },
-    { name: t("nav.edu"), href: "#focus-areas" },
+    { name: t("nav.gov"), href: "/governance-policy" },
+    { name: t("nav.env"), href: "/environmental-strategy" },
+    { name: t("nav.soc"), href: "/social-impact" },
+    { name: t("nav.res"), href: "/sdg-research" },
+    { name: t("nav.edu"), href: "/education-curriculum" },
   ];
 
   return (

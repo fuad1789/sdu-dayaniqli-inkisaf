@@ -4,7 +4,7 @@ const cspHeader = `
   default-src 'self';
   script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://static.cloudflareinsights.com;
   style-src 'self' 'unsafe-inline';
-  img-src 'self' blob: data: https://www.googletagmanager.com https://images.unsplash.com;
+  img-src 'self' blob: data: https://www.googletagmanager.com https://images.unsplash.com https://sdgs.un.org;
   font-src 'self';
   object-src 'none';
   base-uri 'self';
@@ -13,6 +13,15 @@ const cspHeader = `
 `;
 
 const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "sdgs.un.org",
+        pathname: "/sites/default/files/goals/**",
+      },
+    ],
+  },
   async headers() {
     return [
       {
