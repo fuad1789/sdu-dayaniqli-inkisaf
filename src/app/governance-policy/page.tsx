@@ -5,47 +5,51 @@ import { Shield, FileText, Scale, Users, ChevronRight, Download } from "lucide-r
 import Link from "next/link";
 import { useLanguage } from "@/components/LanguageContext";
 
-const pillars = [
-  {
-    icon: Shield,
-    title: "Institutional Integrity",
-    desc: "Establishing robust governance frameworks that embed sustainability accountability at every level of university leadership.",
-    color: "bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400",
-  },
-  {
-    icon: Scale,
-    title: "Evidence-Based Policy",
-    desc: "Drafting and reviewing sustainability policies grounded in peer-reviewed data, international benchmarks, and stakeholder consultation.",
-    color: "bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400",
-  },
-  {
-    icon: FileText,
-    title: "Transparent Reporting",
-    desc: "Publishing annual sustainability reports compliant with GRI and IESBA standards, ensuring complete public accountability.",
-    color: "bg-teal-50 dark:bg-teal-900/20 text-teal-600 dark:text-teal-400",
-  },
-  {
-    icon: Users,
-    title: "Stakeholder Engagement",
-    desc: "Creating meaningful dialogue between faculty, students, government authorities, and NGOs to co-design sustainability initiatives.",
-    color: "bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400",
-  },
-];
-
-const documents = [
-  { title: "SDU Sustainability Strategy 2024–2030", tag: "Strategy", year: "2024" },
-  { title: "Annual GRI Sustainability Report", tag: "Report", year: "2023" },
-  { title: "Campus Carbon Neutrality Roadmap", tag: "Roadmap", year: "2024" },
-  { title: "Stakeholder Engagement Charter", tag: "Policy", year: "2023" },
-];
+const pillarIcons = [Shield, Scale, FileText, Users];
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   show: (i: number) => ({ opacity: 1, y: 0, transition: { delay: i * 0.1, duration: 0.5 } }),
 };
 
+const documentTags = ["Strategy", "Report", "Roadmap", "Policy"];
+
 export default function GovernancePolicyPage() {
   const { t } = useLanguage();
+
+  const pillars = [
+    {
+      icon: Shield,
+      title: t("gov.pillar1.title"),
+      desc: t("gov.pillar1.desc"),
+      color: "bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400",
+    },
+    {
+      icon: Scale,
+      title: t("gov.pillar2.title"),
+      desc: t("gov.pillar2.desc"),
+      color: "bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400",
+    },
+    {
+      icon: FileText,
+      title: t("gov.pillar3.title"),
+      desc: t("gov.pillar3.desc"),
+      color: "bg-teal-50 dark:bg-teal-900/20 text-teal-600 dark:text-teal-400",
+    },
+    {
+      icon: Users,
+      title: t("gov.pillar4.title"),
+      desc: t("gov.pillar4.desc"),
+      color: "bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400",
+    },
+  ];
+
+  const documents = [
+    { title: t("gov.doc1.title"), tag: t("gov.doc1.tag"), year: "2024" },
+    { title: t("gov.doc2.title"), tag: t("gov.doc2.tag"), year: "2023" },
+    { title: t("gov.doc3.title"), tag: t("gov.doc3.tag"), year: "2024" },
+    { title: t("gov.doc4.title"), tag: t("gov.doc4.tag"), year: "2023" },
+  ];
 
   return (
     <main className="min-h-screen bg-slate-50 dark:bg-slate-900">
@@ -67,7 +71,7 @@ export default function GovernancePolicyPage() {
             transition={{ delay: 0.1, duration: 0.6 }}
             className="text-4xl md:text-5xl font-bold mb-6 leading-tight"
           >
-            Governance &amp; Policy
+            {t("gov.title")}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
@@ -75,7 +79,7 @@ export default function GovernancePolicyPage() {
             transition={{ delay: 0.25, duration: 0.6 }}
             className="text-lg md:text-xl text-blue-100 max-w-2xl mx-auto"
           >
-            Building transparent institutional frameworks, ethical decision-making processes, and evidence-based sustainability policies that drive long-term impact.
+            {t("gov.desc")}
           </motion.p>
         </div>
       </section>
@@ -83,9 +87,9 @@ export default function GovernancePolicyPage() {
       {/* Pillars */}
       <section className="max-w-6xl mx-auto px-4 py-20">
         <div className="text-center mb-14">
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-3">Our Governance Pillars</h2>
+          <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-3">{t("gov.pillars.title")}</h2>
           <p className="text-slate-500 dark:text-slate-400 max-w-xl mx-auto">
-            Four interconnected principles that underpin how SDU governs its sustainability agenda.
+            {t("gov.pillars.desc")}
           </p>
         </div>
         <div className="grid sm:grid-cols-2 gap-6">
@@ -112,7 +116,7 @@ export default function GovernancePolicyPage() {
       {/* Policy Documents */}
       <section className="bg-white dark:bg-slate-800/50 border-y border-slate-200 dark:border-slate-700 py-16 px-4">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-8">Policy Documents</h2>
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-8">{t("gov.docs.title")}</h2>
           <div className="space-y-4">
             {documents.map((doc, i) => (
               <motion.div
@@ -147,15 +151,15 @@ export default function GovernancePolicyPage() {
 
       {/* CTA */}
       <section className="max-w-4xl mx-auto px-4 py-20 text-center">
-        <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Contribute to Our Policy Work</h2>
+        <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">{t("gov.cta.title")}</h2>
         <p className="text-slate-500 dark:text-slate-400 mb-8 max-w-lg mx-auto">
-          Faculty, students, and community partners can submit policy proposals through the SDU Sustainability Portal.
+          {t("gov.cta.desc")}
         </p>
         <Link
           href="/"
           className="inline-flex items-center gap-2 bg-blue-600 text-white font-semibold px-6 py-3 rounded-xl hover:bg-blue-700 transition-colors"
         >
-          Back to Home <ChevronRight className="w-4 h-4" />
+          {t("gov.cta.btn")} <ChevronRight className="w-4 h-4" />
         </Link>
       </section>
     </main>
