@@ -2,64 +2,70 @@
 
 import { motion, Variants } from "framer-motion";
 import {
-  Scale,
-  Leaf,
-  Users,
+  Shield,
+  BarChart3,
   FlaskConical,
   GraduationCap,
+  Users,
 } from "lucide-react";
+import Link from "next/link";
 import { useLanguage } from "./LanguageContext";
 
 const getFocusAreas = (t: (key: string) => string) => [
   {
     id: 1,
-    title: t("sfa.focus1.title"),
+    title: t("nav.gov2"),
     description: t("sfa.focus1.desc"),
-    icon: Scale,
+    icon: Shield,
     gradient: "from-sky-500/10 to-blue-600/10",
     iconBg: "bg-sky-500",
     border: "hover:border-sky-300 dark:hover:border-sky-700",
     accent: "text-sky-600 dark:text-sky-400",
+    href: "/governance-policy",
   },
   {
     id: 2,
-    title: t("sfa.focus2.title"),
+    title: t("nav.strat"),
     description: t("sfa.focus2.desc"),
-    icon: Leaf,
+    icon: BarChart3,
     gradient: "from-emerald-500/10 to-green-600/10",
     iconBg: "bg-emerald-500",
     border: "hover:border-emerald-300 dark:hover:border-emerald-700",
     accent: "text-emerald-600 dark:text-emerald-400",
+    href: "/environmental-strategy",
   },
   {
     id: 3,
-    title: t("sfa.focus3.title"),
-    description: t("sfa.focus3.desc"),
-    icon: Users,
-    gradient: "from-violet-500/10 to-purple-600/10",
-    iconBg: "bg-violet-500",
-    border: "hover:border-violet-300 dark:hover:border-violet-700",
-    accent: "text-violet-600 dark:text-violet-400",
-  },
-  {
-    id: 4,
-    title: t("sfa.focus4.title"),
+    title: t("nav.res2"),
     description: t("sfa.focus4.desc"),
     icon: FlaskConical,
     gradient: "from-orange-500/10 to-amber-600/10",
     iconBg: "bg-orange-500",
     border: "hover:border-orange-300 dark:hover:border-orange-700",
     accent: "text-orange-600 dark:text-orange-400",
+    href: "/sdg-research",
   },
   {
-    id: 5,
-    title: t("sfa.focus5.title"),
+    id: 4,
+    title: t("nav.edu2"),
     description: t("sfa.focus5.desc"),
     icon: GraduationCap,
     gradient: "from-rose-500/10 to-pink-600/10",
     iconBg: "bg-rose-500",
     border: "hover:border-rose-300 dark:hover:border-rose-700",
     accent: "text-rose-600 dark:text-rose-400",
+    href: "/education-curriculum",
+  },
+  {
+    id: 5,
+    title: t("nav.comm"),
+    description: t("sfa.focus3.desc"),
+    icon: Users,
+    gradient: "from-cyan-500/10 to-blue-600/10",
+    iconBg: "bg-cyan-500",
+    border: "hover:border-cyan-300 dark:hover:border-cyan-700",
+    accent: "text-cyan-600 dark:text-cyan-400",
+    href: "/social-impact",
   },
 ];
 
@@ -139,10 +145,10 @@ export default function StrategicFocusAreas() {
           {focusAreas.map((area) => {
             const Icon = area.icon;
             return (
+              <Link key={area.id} href={area.href}>
               <motion.div
-                key={area.id}
                 variants={cardVariants}
-                className={`group relative flex flex-col rounded-2xl md:rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 md:p-8 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${area.border} cursor-default`}
+                className={`group relative flex flex-col rounded-2xl md:rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 md:p-8 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${area.border} cursor-pointer h-full`}
               >
                 {/* Card background gradient on hover */}
                 <div
@@ -187,6 +193,7 @@ export default function StrategicFocusAreas() {
                   </div>
                 </div>
               </motion.div>
+              </Link>
             );
           })}
 

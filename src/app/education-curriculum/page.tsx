@@ -1,35 +1,73 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GraduationCap, Award, BookMarked, Users, ChevronRight } from "lucide-react";
+import {
+  GraduationCap,
+  BookOpen,
+  Users,
+  Leaf,
+  Award,
+  Lightbulb,
+  ChevronRight,
+} from "lucide-react";
 import Link from "next/link";
 import { useLanguage } from "@/components/LanguageContext";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
-  show: (i: number) => ({ opacity: 1, y: 0, transition: { delay: i * 0.1, duration: 0.5 } }),
+  show: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.08, duration: 0.5 },
+  }),
 };
 
-export default function EducationCurriculumPage() {
+export default function SustainableEducationPage() {
   const { t } = useLanguage();
 
-  const metrics = [
-    { icon: BookMarked,    value: "45+",    label: t("edu.metric1.label"), color: "text-rose-600 dark:text-rose-400",   bg: "bg-rose-50 dark:bg-rose-900/20" },
-    { icon: Award,         value: "5",      label: t("edu.metric2.label"), color: "text-red-600 dark:text-red-400",     bg: "bg-red-50 dark:bg-red-900/20" },
-    { icon: Users,         value: "320",    label: t("edu.metric3.label"), color: "text-pink-600 dark:text-pink-400",   bg: "bg-pink-50 dark:bg-pink-900/20" },
-    { icon: GraduationCap, value: "4,500+", label: t("edu.metric4.label"), color: "text-fuchsia-600 dark:text-fuchsia-400",bg: "bg-fuchsia-50 dark:bg-fuchsia-900/20" },
+  const topics = [
+    { title: t("edu2.topic1.title"), desc: t("edu2.topic1.desc"), icon: Lightbulb, color: "bg-rose-50 dark:bg-rose-900/20 text-rose-600 dark:text-rose-400" },
+    { title: t("edu2.topic2.title"), desc: t("edu2.topic2.desc"), icon: Leaf, color: "bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400" },
+    { title: t("edu2.topic3.title"), desc: t("edu2.topic3.desc"), icon: Users, color: "bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400" },
+    { title: t("edu2.topic4.title"), desc: t("edu2.topic4.desc"), icon: BookOpen, color: "bg-teal-50 dark:bg-teal-900/20 text-teal-600 dark:text-teal-400" },
+    { title: t("edu2.topic5.title"), desc: t("edu2.topic5.desc"), icon: Lightbulb, color: "bg-yellow-50 dark:bg-yellow-900/20 text-yellow-600 dark:text-yellow-400" },
+    { title: t("edu2.topic6.title"), desc: t("edu2.topic6.desc"), icon: Award, color: "bg-sky-50 dark:bg-sky-900/20 text-sky-600 dark:text-sky-400" },
+  ];
+
+  const courses = [
+    { title: t("edu2.course1.title"), desc: t("edu2.course1.desc") },
+    { title: t("edu2.course2.title"), desc: t("edu2.course2.desc") },
+    { title: t("edu2.course3.title"), desc: t("edu2.course3.desc") },
+    { title: t("edu2.course4.title"), desc: t("edu2.course4.desc") },
+    { title: t("edu2.course5.title"), desc: t("edu2.course5.desc") },
+    { title: t("edu2.course6.title"), desc: t("edu2.course6.desc") },
   ];
 
   const initiatives = [
-    { title: t("edu.init1.title"), status: t("edu.init1.status"), statusKey: "Active",      progress: 95, desc: t("edu.init1.desc") },
-    { title: t("edu.init2.title"), status: t("edu.init2.status"), statusKey: "In Progress", progress: 60, desc: t("edu.init2.desc") },
-    { title: t("edu.init3.title"), status: t("edu.init3.status"), statusKey: "Active",      progress: 88, desc: t("edu.init3.desc") },
-    { title: t("edu.init4.title"), status: t("edu.init4.status"), statusKey: "Planned",     progress: 15, desc: t("edu.init4.desc") },
+    { title: t("edu2.init1.title"), desc: t("edu2.init1.desc") },
+    { title: t("edu2.init2.title"), desc: t("edu2.init2.desc") },
+    { title: t("edu2.init3.title"), desc: t("edu2.init3.desc") },
+    { title: t("edu2.init4.title"), desc: t("edu2.init4.desc") },
+    { title: t("edu2.init5.title"), desc: t("edu2.init5.desc") },
+  ];
+
+  const ecoActivities = [
+    t("edu2.eco1.title"),
+    t("edu2.eco2.title"),
+    t("edu2.eco3.title"),
+    t("edu2.eco4.title"),
+  ];
+
+  const workshops = [
+    t("edu2.workshop1.title"),
+    t("edu2.workshop2.title"),
+    t("edu2.workshop3.title"),
+    t("edu2.workshop4.title"),
+    t("edu2.workshop5.title"),
   ];
 
   return (
     <main className="min-h-screen bg-slate-50 dark:bg-slate-900">
-
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-rose-600 to-red-700 py-24 px-4">
         <div className="absolute inset-0 opacity-10">
@@ -37,9 +75,13 @@ export default function EducationCurriculumPage() {
           <div className="absolute bottom-10 left-10 w-96 h-96 rounded-full bg-pink-200 blur-3xl" />
         </div>
         <div className="relative max-w-4xl mx-auto text-center text-white">
-          <motion.div initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }}>
+          <motion.div
+            initial={{ opacity: 0, y: -16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
             <span className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-4 py-1.5 text-sm font-semibold mb-6">
-              <GraduationCap className="w-4 h-4" /> {t("edu.badge")}
+              <GraduationCap className="w-4 h-4" /> {t("nav.edu2")}
             </span>
           </motion.div>
           <motion.h1
@@ -48,83 +90,150 @@ export default function EducationCurriculumPage() {
             transition={{ delay: 0.1, duration: 0.6 }}
             className="text-4xl md:text-5xl font-bold mb-6 leading-tight"
           >
-            {t("edu.title")}
+            {t("edu2.section1.title")}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.25, duration: 0.6 }}
-            className="text-lg md:text-xl text-rose-100 max-w-2xl mx-auto"
+            className="text-base md:text-lg text-rose-100 max-w-3xl mx-auto leading-relaxed"
           >
-            {t("edu.desc")}
+            {t("edu2.intro")}
           </motion.p>
         </div>
       </section>
 
-      {/* Metrics */}
-      <section className="max-w-6xl mx-auto px-4 py-16">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          {metrics.map((m, i) => (
+      {/* Sustainability Topics in Curriculum */}
+      <section className="max-w-6xl mx-auto px-4 py-20">
+        <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-10 text-center">
+          {t("edu2.section1.title")}
+        </h2>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {topics.map((topic, i) => (
             <motion.div
-              key={m.label}
+              key={topic.title}
               custom={i}
               variants={fadeUp}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 text-center"
+              className="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-shadow"
             >
-              <div className={`w-12 h-12 rounded-xl ${m.bg} flex items-center justify-center mx-auto mb-3`}>
-                <m.icon className={`w-6 h-6 ${m.color}`} />
+              <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${topic.color}`}>
+                <topic.icon className="w-6 h-6" />
               </div>
-              <p className={`text-2xl font-bold ${m.color} mb-1`}>{m.value}</p>
-              <p className="text-xs text-slate-500 dark:text-slate-400 leading-snug">{m.label}</p>
+              <h3 className="font-bold text-slate-900 dark:text-white text-lg mb-2">
+                {topic.title}
+              </h3>
+              <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                {topic.desc}
+              </p>
             </motion.div>
           ))}
         </div>
       </section>
 
-      {/* Initiatives */}
-      <section className="max-w-4xl mx-auto px-4 pb-16">
-        <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-8">
-          {t("edu.initiatives.title")}
+      {/* Relevant Courses & Programs */}
+      <section className="bg-white dark:bg-slate-800/50 border-y border-slate-200 dark:border-slate-700 py-16 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-8 text-center">
+            {t("edu2.section2.title")}
+          </h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {courses.map((c, i) => (
+              <motion.div
+                key={c.title}
+                custom={i}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                className="bg-slate-50 dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-shadow"
+              >
+                <div className="w-10 h-10 rounded-xl bg-rose-50 dark:bg-rose-900/20 flex items-center justify-center mb-3">
+                  <BookOpen className="w-5 h-5 text-rose-600 dark:text-rose-400" />
+                </div>
+                <h3 className="font-semibold text-slate-900 dark:text-white mb-1">
+                  {c.title}
+                </h3>
+                <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                  {c.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Student Sustainability Initiatives */}
+      <section className="max-w-6xl mx-auto px-4 py-20">
+        <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-8 text-center">
+          {t("edu2.section3.title")}
         </h2>
-        <div className="space-y-5">
-          {initiatives.map((item, i) => (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {initiatives.map((init, i) => (
             <motion.div
-              key={item.title}
+              key={init.title}
               custom={i}
               variants={fadeUp}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700"
+              className="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-shadow"
             >
-              <div className="flex items-start justify-between mb-3">
-                <h3 className="font-semibold text-slate-900 dark:text-white">{item.title}</h3>
-                <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${
-                  item.statusKey === "Active"      ? "bg-rose-100 text-rose-700 dark:bg-rose-900/30 dark:text-rose-400" :
-                  item.statusKey === "In Progress" ? "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400"     :
-                                                     "bg-slate-100 text-slate-600 dark:bg-slate-700 dark:text-slate-300"
-                }`}>
-                  {item.status}
-                </span>
+              <div className="w-10 h-10 rounded-xl bg-pink-50 dark:bg-pink-900/20 flex items-center justify-center mb-3">
+                <Users className="w-5 h-5 text-pink-600 dark:text-pink-400" />
               </div>
-              <p className="text-sm text-slate-500 dark:text-slate-400 mb-4">{item.desc}</p>
-              <div className="flex items-center gap-3">
-                <div className="flex-1 bg-slate-100 dark:bg-slate-700 rounded-full h-2">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${item.progress}%` }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.3, duration: 0.8 }}
-                    className="h-2 rounded-full bg-rose-500"
-                  />
-                </div>
-                <span className="text-xs font-semibold text-rose-600 dark:text-rose-400 w-8 text-right">
-                  {item.progress}%
-                </span>
-              </div>
+              <h3 className="font-semibold text-slate-900 dark:text-white mb-1">{init.title}</h3>
+              <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{init.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Eco-Club Activities */}
+      <section className="bg-white dark:bg-slate-800/50 border-y border-slate-200 dark:border-slate-700 py-16 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-8 text-center">
+            {t("edu2.section4.title")}
+          </h2>
+          <div className="flex flex-wrap justify-center gap-4">
+            {ecoActivities.map((act, i) => (
+              <motion.div
+                key={act}
+                custom={i}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                className="bg-slate-50 dark:bg-slate-800 rounded-xl px-5 py-3 border border-slate-200 dark:border-slate-700 flex items-center gap-3 hover:shadow-lg transition-shadow"
+              >
+                <Leaf className="w-5 h-5 text-emerald-500 shrink-0" />
+                <span className="font-medium text-slate-700 dark:text-slate-200 text-sm">{act}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Workshops & Seminars */}
+      <section className="max-w-4xl mx-auto px-4 py-20">
+        <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-8 text-center">
+          {t("edu2.section5.title")}
+        </h2>
+        <div className="flex flex-wrap justify-center gap-4">
+          {workshops.map((w, i) => (
+            <motion.div
+              key={w}
+              custom={i}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              className="bg-white dark:bg-slate-800 rounded-xl px-5 py-3 border border-slate-200 dark:border-slate-700 flex items-center gap-3 hover:shadow-lg transition-shadow"
+            >
+              <Award className="w-5 h-5 text-rose-500 shrink-0" />
+              <span className="font-medium text-slate-700 dark:text-slate-200 text-sm">{w}</span>
             </motion.div>
           ))}
         </div>
@@ -132,10 +241,7 @@ export default function EducationCurriculumPage() {
 
       {/* CTA */}
       <section className="bg-rose-600 py-16 px-4 text-center text-white">
-        <h2 className="text-2xl font-bold mb-3">{t("edu.cta.title")}</h2>
-        <p className="text-rose-100 mb-6 max-w-md mx-auto text-sm">
-          {t("edu.cta.desc")}
-        </p>
+        <h2 className="text-2xl font-bold mb-3">{t("edu2.cta")}</h2>
         <Link
           href="/"
           className="inline-flex items-center gap-2 bg-white text-rose-700 font-semibold px-6 py-3 rounded-xl hover:bg-rose-50 transition-colors"
@@ -143,7 +249,6 @@ export default function EducationCurriculumPage() {
           {t("edu.cta.btn")} <ChevronRight className="w-4 h-4" />
         </Link>
       </section>
-
     </main>
   );
 }
