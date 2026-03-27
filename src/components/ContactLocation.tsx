@@ -60,7 +60,7 @@ export default function ContactLocation() {
                   </div>
                   <div>
                     <strong className="block text-slate-900 dark:text-white mb-1">{t("contact.email.label")}</strong>
-                    <a href="mailto:info@sdu.edu.az" className="hover:text-emerald-600 transition-colors">info@sdu.edu.az</a>
+                    <a href="mailto:sustainability@sdu.edu.az" className="hover:text-emerald-600 transition-colors">sustainability@sdu.edu.az</a>
                   </div>
                 </li>
                 <li className="flex items-start gap-4 text-slate-700 dark:text-slate-300">
