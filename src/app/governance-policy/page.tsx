@@ -30,40 +30,21 @@ export default function GovernanceAccountabilityPage() {
   const { t } = useLanguage();
 
   const policies = [
-    {
-      icon: Scale,
-      title: t("gov2.policy1.title"),
-      desc: t("gov2.policy1.desc"),
-      color: "bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400",
-    },
-    {
-      icon: ShieldCheck,
-      title: t("gov2.policy2.title"),
-      desc: t("gov2.policy2.desc"),
-      color:
-        "bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400",
-    },
-    {
-      icon: Users,
-      title: t("gov2.policy3.title"),
-      desc: t("gov2.policy3.desc"),
-      color:
-        "bg-teal-50 dark:bg-teal-900/20 text-teal-600 dark:text-teal-400",
-    },
-    {
-      icon: HandshakeIcon,
-      title: t("gov2.policy4.title"),
-      desc: t("gov2.policy4.desc"),
-      color:
-        "bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400",
-    },
-    {
-      icon: BanknoteIcon,
-      title: t("gov2.policy5.title"),
-      desc: t("gov2.policy5.desc"),
-      color:
-        "bg-amber-50 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400",
-    },
+    { icon: Scale, title: t("gov2.policy1.title"), desc: t("gov2.policy1.desc"), color: "bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400", pdf: "/Student-Sustainability-Initiatives/Academic Freedom Policy_new.pdf" },
+    { icon: ShieldCheck, title: t("gov2.policy2.title"), desc: t("gov2.policy2.desc"), color: "bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400", pdf: "/Student-Sustainability-Initiatives/Anticorruption policy_new.pdf" },
+    { icon: Users, title: t("gov2.policy3.title"), desc: t("gov2.policy3.desc"), color: "bg-teal-50 dark:bg-teal-900/20 text-teal-600 dark:text-teal-400", pdf: "/Student-Sustainability-Initiatives/Antidiscrimination policy_new.pdf" },
+    { icon: Shield, title: t("gov2.policy4.title"), desc: t("gov2.policy4.desc"), color: "bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400", pdf: "/Student-Sustainability-Initiatives/Anti-harassment policy_new.pdf" },
+    { icon: Landmark, title: t("gov2.policy5.title"), desc: t("gov2.policy5.desc"), color: "bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400", pdf: "/Student-Sustainability-Initiatives/Climate Action and Sustainability Policy_new.pdf" },
+    { icon: Users, title: t("gov2.policy6.title"), desc: t("gov2.policy6.desc"), color: "bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400", pdf: "/Student-Sustainability-Initiatives/Equality Diversity & Inclusion Policy_new.pdf" },
+    { icon: Award, title: t("gov2.policy7.title"), desc: t("gov2.policy7.desc"), color: "bg-pink-50 dark:bg-pink-900/20 text-pink-600 dark:text-pink-400", pdf: "/Student-Sustainability-Initiatives/FrameWork_Equality, Diversity, Inclusion.pdf" },
+    { icon: Eye, title: t("gov2.policy8.title"), desc: t("gov2.policy8.desc"), color: "bg-cyan-50 dark:bg-cyan-900/20 text-cyan-600 dark:text-cyan-400", pdf: "/Student-Sustainability-Initiatives/Inclusive Education and Accessibility Framework_new.pdf" },
+    { icon: HandshakeIcon, title: t("gov2.policy9.title"), desc: t("gov2.policy9.desc"), color: "bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400", pdf: "/Student-Sustainability-Initiatives/Policy on Ethical Organizational Values_new.pdf" },
+    { icon: Scale, title: t("gov2.policy10.title"), desc: t("gov2.policy10.desc"), color: "bg-violet-50 dark:bg-violet-900/20 text-violet-600 dark:text-violet-400", pdf: "/Student-Sustainability-Initiatives/Policy on Ethical Values_new.pdf" },
+    { icon: ShieldCheck, title: t("gov2.policy11.title"), desc: t("gov2.policy11.desc"), color: "bg-rose-50 dark:bg-rose-900/20 text-rose-600 dark:text-rose-400", pdf: "/Student-Sustainability-Initiatives/Prevention Policy on Human Trafficking_new.pdf" },
+    { icon: Shield, title: t("gov2.policy12.title"), desc: t("gov2.policy12.desc"), color: "bg-sky-50 dark:bg-sky-900/20 text-sky-600 dark:text-sky-400", pdf: "/Student-Sustainability-Initiatives/Student Safety Policy_new.pdf" },
+    { icon: BanknoteIcon, title: t("gov2.policy13.title"), desc: t("gov2.policy13.desc"), color: "bg-amber-50 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400", pdf: "/Student-Sustainability-Initiatives/Sustainability Policy on Donations and Funding_new.pdf" },
+    { icon: BanknoteIcon, title: t("gov2.policy14.title"), desc: t("gov2.policy14.desc"), color: "bg-lime-50 dark:bg-lime-900/20 text-lime-600 dark:text-lime-400", pdf: "/Student-Sustainability-Initiatives/Sustainable Investment Policy_new.pdf" },
+    { icon: HandshakeIcon, title: t("gov2.policy15.title"), desc: t("gov2.policy15.desc"), color: "bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400", pdf: "/Student-Sustainability-Initiatives/Sustainable Procurement Policy_new.pdf" },
   ];
 
   const committees = [
@@ -159,29 +140,35 @@ export default function GovernanceAccountabilityPage() {
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-8 text-center">
             {t("gov2.section2.title")}
           </h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
             {policies.map((p, i) => (
-              <motion.div
+              <motion.a
                 key={p.title}
+                href={p.pdf}
+                target="_blank"
+                rel="noopener noreferrer"
                 custom={i}
                 variants={fadeUp}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true }}
-                className="bg-slate-50 dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-shadow"
+                className="flex flex-col bg-slate-50 dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 hover:shadow-lg hover:border-blue-300 dark:hover:border-blue-700 transition-all group"
               >
                 <div
                   className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${p.color}`}
                 >
                   <p.icon className="w-6 h-6" />
                 </div>
-                <h3 className="font-bold text-slate-900 dark:text-white text-lg mb-2">
+                <h3 className="font-bold text-slate-900 dark:text-white text-lg mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   {p.title}
                 </h3>
-                <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed flex-1">
                   {p.desc}
                 </p>
-              </motion.div>
+                <span className="inline-flex items-center gap-1 text-xs font-medium text-blue-600 dark:text-blue-400 mt-4">
+                  <FileText className="w-3.5 h-3.5" /> PDF
+                </span>
+              </motion.a>
             ))}
           </div>
         </div>

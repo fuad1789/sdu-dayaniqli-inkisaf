@@ -9,6 +9,7 @@ import {
   Award,
   Lightbulb,
   ChevronRight,
+  FileText,
 } from "lucide-react";
 import Link from "next/link";
 import { useLanguage } from "@/components/LanguageContext";
@@ -44,11 +45,21 @@ export default function SustainableEducationPage() {
   ];
 
   const initiatives = [
-    { title: t("edu2.init1.title"), desc: t("edu2.init1.desc") },
-    { title: t("edu2.init2.title"), desc: t("edu2.init2.desc") },
-    { title: t("edu2.init3.title"), desc: t("edu2.init3.desc") },
-    { title: t("edu2.init4.title"), desc: t("edu2.init4.desc") },
-    { title: t("edu2.init5.title"), desc: t("edu2.init5.desc") },
+    { title: t("edu2.init1.title"), desc: t("edu2.init1.desc"), pdf: "/Student-Sustainability-Initiatives/Academic Freedom Policy_new.pdf" },
+    { title: t("edu2.init2.title"), desc: t("edu2.init2.desc"), pdf: "/Student-Sustainability-Initiatives/Anticorruption policy_new.pdf" },
+    { title: t("edu2.init3.title"), desc: t("edu2.init3.desc"), pdf: "/Student-Sustainability-Initiatives/Antidiscrimination policy_new.pdf" },
+    { title: t("edu2.init4.title"), desc: t("edu2.init4.desc"), pdf: "/Student-Sustainability-Initiatives/Anti-harassment policy_new.pdf" },
+    { title: t("edu2.init5.title"), desc: t("edu2.init5.desc"), pdf: "/Student-Sustainability-Initiatives/Climate Action and Sustainability Policy_new.pdf" },
+    { title: t("edu2.init6.title"), desc: t("edu2.init6.desc"), pdf: "/Student-Sustainability-Initiatives/Equality Diversity & Inclusion Policy_new.pdf" },
+    { title: t("edu2.init7.title"), desc: t("edu2.init7.desc"), pdf: "/Student-Sustainability-Initiatives/FrameWork_Equality, Diversity, Inclusion.pdf" },
+    { title: t("edu2.init8.title"), desc: t("edu2.init8.desc"), pdf: "/Student-Sustainability-Initiatives/Inclusive Education and Accessibility Framework_new.pdf" },
+    { title: t("edu2.init9.title"), desc: t("edu2.init9.desc"), pdf: "/Student-Sustainability-Initiatives/Policy on Ethical Organizational Values_new.pdf" },
+    { title: t("edu2.init10.title"), desc: t("edu2.init10.desc"), pdf: "/Student-Sustainability-Initiatives/Policy on Ethical Values_new.pdf" },
+    { title: t("edu2.init11.title"), desc: t("edu2.init11.desc"), pdf: "/Student-Sustainability-Initiatives/Prevention Policy on Human Trafficking_new.pdf" },
+    { title: t("edu2.init12.title"), desc: t("edu2.init12.desc"), pdf: "/Student-Sustainability-Initiatives/Student Safety Policy_new.pdf" },
+    { title: t("edu2.init13.title"), desc: t("edu2.init13.desc"), pdf: "/Student-Sustainability-Initiatives/Sustainability Policy on Donations and Funding_new.pdf" },
+    { title: t("edu2.init14.title"), desc: t("edu2.init14.desc"), pdf: "/Student-Sustainability-Initiatives/Sustainable Investment Policy_new.pdf" },
+    { title: t("edu2.init15.title"), desc: t("edu2.init15.desc"), pdf: "/Student-Sustainability-Initiatives/Sustainable Procurement Policy_new.pdf" },
   ];
 
   const ecoActivities = [
@@ -170,23 +181,29 @@ export default function SustainableEducationPage() {
         <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-8 text-center">
           {t("edu2.section3.title")}
         </h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 auto-rows-fr">
           {initiatives.map((init, i) => (
-            <motion.div
+            <motion.a
               key={init.title}
+              href={init.pdf}
+              target="_blank"
+              rel="noopener noreferrer"
               custom={i}
               variants={fadeUp}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              className="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-shadow"
+              className="flex flex-col bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 hover:shadow-lg hover:border-pink-300 dark:hover:border-pink-700 transition-all group"
             >
               <div className="w-10 h-10 rounded-xl bg-pink-50 dark:bg-pink-900/20 flex items-center justify-center mb-3">
-                <Users className="w-5 h-5 text-pink-600 dark:text-pink-400" />
+                <FileText className="w-5 h-5 text-pink-600 dark:text-pink-400" />
               </div>
-              <h3 className="font-semibold text-slate-900 dark:text-white mb-1">{init.title}</h3>
-              <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{init.desc}</p>
-            </motion.div>
+              <h3 className="font-semibold text-slate-900 dark:text-white mb-1 group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors">{init.title}</h3>
+              <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed flex-1">{init.desc}</p>
+              <span className="inline-flex items-center gap-1 text-xs font-medium text-pink-600 dark:text-pink-400 mt-4">
+                <FileText className="w-3.5 h-3.5" /> PDF
+              </span>
+            </motion.a>
           ))}
         </div>
       </section>
