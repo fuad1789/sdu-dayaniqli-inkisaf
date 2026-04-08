@@ -58,11 +58,23 @@ export default function StrategyReportingPage() {
     { title: t("strat.goal5.title"), desc: t("strat.goal5.desc"), progress: 60 },
   ];
 
-  const reports = [
-    { title: t("strat.report1.title"), year: "2024" },
-    { title: t("strat.report2.title"), year: "2023" },
-    { title: t("strat.report3.title"), year: "2024" },
-    { title: t("strat.report4.title"), year: "2023" },
+  const reports: { title: string; year: string; file: string }[] = [
+    { title: "SDG 1 – No Poverty", year: "2025", file: "/SDG Reports/SDG 1 - 2025.pdf" },
+    { title: "SDG 2 – Zero Hunger", year: "2025", file: "/SDG Reports/SDG 2 - 2025.pdf" },
+    { title: "SDG 3 – Good Health and Well-being", year: "2025", file: "/SDG Reports/SDG 3 - 2025.pdf" },
+    { title: "SDG 4 – Quality Education", year: "2025", file: "/SDG Reports/SDG 4 - 2025.pdf" },
+    { title: "SDG 5 – Gender Equality", year: "2025", file: "/SDG Reports/SDG 5 - 2025.pdf" },
+    { title: "SDG 6 – Clean Water and Sanitation", year: "2025", file: "/SDG Reports/SDG 6 - 2025.pdf" },
+    { title: "SDG 7 – Affordable and Clean Energy", year: "2025", file: "/SDG Reports/SDG 7 - 2025.pdf" },
+    { title: "SDG 8 – Decent Work and Economic Growth", year: "2025", file: "/SDG Reports/SDG 8 - 2025.pdf" },
+    { title: "SDG 9 – Industry, Innovation and Infrastructure", year: "2025", file: "/SDG Reports/SDG 9 - 2025.pdf" },
+    { title: "SDG 10 – Reduced Inequalities", year: "2025", file: "/SDG Reports/SDG 10 - 2025.pdf" },
+    { title: "SDG 12 – Responsible Consumption and Production", year: "2025", file: "/SDG Reports/SDG 12 - 2025.pdf" },
+    { title: "SDG 13 – Climate Action", year: "2025", file: "/SDG Reports/SDG 13 - 2025.pdf" },
+    { title: "SDG 14 – Life Below Water", year: "2025", file: "/SDG Reports/SDG 14 - 2025.pdf" },
+    { title: "SDG 15 – Life on Land", year: "2025", file: "/SDG Reports/SDG 15 - 2025.pdf" },
+    { title: "SDG 16 – Peace, Justice and Strong Institutions", year: "2025", file: "/SDG Reports/SDG 16 - 2025.pdf" },
+    { title: "SDG 17 – Partnerships for the Goals", year: "2025", file: "/SDG Reports/SDG 17 - 2025.pdf" },
   ];
 
   const indicatorIcons = [TrendingUp, Zap, Leaf, Droplets, BookOpen, Users];
@@ -252,10 +264,16 @@ export default function StrategyReportingPage() {
                     <p className="text-xs text-slate-400 mt-0.5">{r.year}</p>
                   </div>
                 </div>
-                <button className="flex items-center gap-2 text-xs font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/20 px-3 py-1.5 rounded-lg group-hover:bg-emerald-600 group-hover:text-white transition-all">
+                <a
+                  href={encodeURI(r.file)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download
+                  className="flex items-center gap-2 text-xs font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/20 px-3 py-1.5 rounded-lg group-hover:bg-emerald-600 group-hover:text-white transition-all"
+                >
                   <Download className="w-4 h-4" />
                   {t("strat.download")}
-                </button>
+                </a>
               </motion.div>
             ))}
           </div>
