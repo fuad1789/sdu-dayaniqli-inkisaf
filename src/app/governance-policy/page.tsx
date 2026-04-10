@@ -13,6 +13,14 @@ import {
   Eye,
   BanknoteIcon,
   ShieldCheck,
+  Building2,
+  Calendar,
+  User,
+  Target,
+  Globe,
+  CheckCircle2,
+  Download,
+  ClipboardList,
 } from "lucide-react";
 import Link from "next/link";
 import { useLanguage } from "@/components/LanguageContext";
@@ -45,21 +53,24 @@ export default function GovernanceAccountabilityPage() {
     { icon: BanknoteIcon, title: t("gov2.policy13.title"), desc: t("gov2.policy13.desc"), color: "bg-amber-50 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400", pdf: "/Student-Sustainability-Initiatives/Sustainability Policy on Donations and Funding_new.pdf" },
     { icon: BanknoteIcon, title: t("gov2.policy14.title"), desc: t("gov2.policy14.desc"), color: "bg-lime-50 dark:bg-lime-900/20 text-lime-600 dark:text-lime-400", pdf: "/Student-Sustainability-Initiatives/Sustainable Investment Policy_new.pdf" },
     { icon: HandshakeIcon, title: t("gov2.policy15.title"), desc: t("gov2.policy15.desc"), color: "bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400", pdf: "/Student-Sustainability-Initiatives/Sustainable Procurement Policy_new.pdf" },
+    { icon: Globe, title: t("gov2.policy16.title"), desc: t("gov2.policy16.desc"), color: "bg-sky-50 dark:bg-sky-900/20 text-sky-600 dark:text-sky-400", pdf: "/Student-Sustainability-Initiatives/Internationalization_Policy.pdf" },
   ];
 
-  const committees = [
-    {
-      title: t("gov2.committee1.title"),
-      desc: t("gov2.committee1.desc"),
-    },
-    {
-      title: t("gov2.committee2.title"),
-      desc: t("gov2.committee2.desc"),
-    },
-    {
-      title: t("gov2.committee3.title"),
-      desc: t("gov2.committee3.desc"),
-    },
+  const centerActivities = [
+    t("gov2.center.activity1"),
+    t("gov2.center.activity2"),
+    t("gov2.center.activity3"),
+    t("gov2.center.activity4"),
+    t("gov2.center.activity5"),
+  ];
+
+  const committeeDuties = [
+    t("gov2.sdcommittee.duty1"),
+    t("gov2.sdcommittee.duty2"),
+    t("gov2.sdcommittee.duty3"),
+    t("gov2.sdcommittee.duty4"),
+    t("gov2.sdcommittee.duty5"),
+    t("gov2.sdcommittee.duty6"),
   ];
 
   const commitments = [
@@ -174,38 +185,186 @@ export default function GovernanceAccountabilityPage() {
         </div>
       </section>
 
-      {/* Sustainability Leadership & Committees */}
+      {/* Sustainable Development Center */}
       <section className="max-w-6xl mx-auto px-4 py-20">
         <div className="text-center mb-14">
           <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-3">
-            {t("gov2.section3.title")}
+            {t("gov2.center.title")}
           </h2>
-          <p className="text-slate-500 dark:text-slate-400 max-w-xl mx-auto">
-            {t("gov2.section3.desc")}
+          <p className="text-slate-500 dark:text-slate-400 max-w-3xl mx-auto">
+            {t("gov2.center.desc")}
           </p>
         </div>
-        <div className="grid sm:grid-cols-3 gap-6">
-          {committees.map((c, i) => (
-            <motion.div
-              key={c.title}
-              custom={i}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              className="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 text-center hover:shadow-lg transition-shadow"
-            >
-              <div className="w-14 h-14 rounded-2xl bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center mx-auto mb-4">
-                <Users className="w-7 h-7 text-blue-600 dark:text-blue-400" />
+
+        <div className="grid lg:grid-cols-2 gap-8">
+          {/* Center Info Card */}
+          <motion.div
+            variants={fadeUp}
+            custom={0}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="bg-white dark:bg-slate-800 rounded-2xl p-8 border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-shadow"
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-900/20 flex items-center justify-center">
+                <Building2 className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
               </div>
-              <h3 className="font-bold text-slate-900 dark:text-white text-lg mb-2">
-                {c.title}
+              <h3 className="font-bold text-slate-900 dark:text-white text-xl">
+                {t("gov2.center.title")}
               </h3>
-              <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
-                {c.desc}
-              </p>
-            </motion.div>
-          ))}
+            </div>
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <Calendar className="w-5 h-5 text-blue-500 mt-0.5 shrink-0" />
+                <div>
+                  <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">{t("gov2.center.established")}</span>
+                  <p className="text-slate-500 dark:text-slate-400 text-sm">{t("gov2.center.establishedDate")}</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <User className="w-5 h-5 text-purple-500 mt-0.5 shrink-0" />
+                <div>
+                  <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">{t("gov2.center.leader")}</span>
+                  <p className="text-slate-500 dark:text-slate-400 text-sm">{t("gov2.center.leaderName")}</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <Target className="w-5 h-5 text-orange-500 mt-0.5 shrink-0" />
+                <div>
+                  <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">{t("gov2.center.mission")}</span>
+                  <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{t("gov2.center.missionDesc")}</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Center Activities Card */}
+          <motion.div
+            variants={fadeUp}
+            custom={1}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="bg-white dark:bg-slate-800 rounded-2xl p-8 border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-shadow"
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center">
+                <Globe className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+              </div>
+              <h3 className="font-bold text-slate-900 dark:text-white text-xl">
+                {t("gov2.center.activities")}
+              </h3>
+            </div>
+            <ul className="space-y-3">
+              {centerActivities.map((activity, i) => (
+                <motion.li
+                  key={i}
+                  custom={i + 2}
+                  variants={fadeUp}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true }}
+                  className="flex items-start gap-3"
+                >
+                  <CheckCircle2 className="w-5 h-5 text-emerald-500 mt-0.5 shrink-0" />
+                  <span className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">{activity}</span>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Sustainable Development Committee */}
+      <section className="bg-white dark:bg-slate-800/50 border-y border-slate-200 dark:border-slate-700 py-16 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-3">
+              {t("gov2.sdcommittee.title")}
+            </h2>
+            <p className="text-slate-500 dark:text-slate-400 max-w-3xl mx-auto">
+              {t("gov2.sdcommittee.desc")}
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8">
+            {/* Duties List */}
+            <div className="lg:col-span-2">
+              <h3 className="font-bold text-slate-900 dark:text-white text-lg mb-4 flex items-center gap-2">
+                <ClipboardList className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                {t("gov2.sdcommittee.duties")}
+              </h3>
+              <div className="grid sm:grid-cols-2 gap-3">
+                {committeeDuties.map((duty, i) => (
+                  <motion.div
+                    key={i}
+                    custom={i}
+                    variants={fadeUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true }}
+                    className="flex items-start gap-3 bg-slate-50 dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700"
+                  >
+                    <CheckCircle2 className="w-5 h-5 text-emerald-500 mt-0.5 shrink-0" />
+                    <span className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">{duty}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Committee Documents */}
+            <div>
+              <h3 className="font-bold text-slate-900 dark:text-white text-lg mb-4 flex items-center gap-2">
+                <FileText className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                PDF
+              </h3>
+              <div className="space-y-4">
+                <motion.a
+                  href="/Student-Sustainability-Initiatives/Committee_Composition.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variants={fadeUp}
+                  custom={0}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true }}
+                  className="flex items-center gap-4 bg-slate-50 dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700 hover:shadow-lg hover:border-blue-300 dark:hover:border-blue-700 transition-all group"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-red-50 dark:bg-red-900/20 flex items-center justify-center shrink-0">
+                    <Download className="w-6 h-6 text-red-600 dark:text-red-400" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-slate-900 dark:text-white text-sm group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                      {t("gov2.sdcommittee.composition")}
+                    </h4>
+                    <span className="text-xs text-slate-400">PDF</span>
+                  </div>
+                </motion.a>
+                <motion.a
+                  href="/Student-Sustainability-Initiatives/Committee_Charter.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variants={fadeUp}
+                  custom={1}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true }}
+                  className="flex items-center gap-4 bg-slate-50 dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700 hover:shadow-lg hover:border-blue-300 dark:hover:border-blue-700 transition-all group"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-indigo-50 dark:bg-indigo-900/20 flex items-center justify-center shrink-0">
+                    <Download className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-slate-900 dark:text-white text-sm group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                      {t("gov2.sdcommittee.charter")}
+                    </h4>
+                    <span className="text-xs text-slate-400">PDF</span>
+                  </div>
+                </motion.a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

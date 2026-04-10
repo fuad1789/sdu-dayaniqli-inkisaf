@@ -345,6 +345,39 @@ export const translations: Record<Language, Record<string, string>> = {
     "gov2.commitment4.desc": "Collaborative approach with local stakeholders.",
     "gov2.cta": "Learn More About Our Governance",
 
+    // Sustainable Development Center
+    "gov2.center.title": "Sustainable Development Center",
+    "gov2.center.desc": "The Sustainable Development Center was established by order dated May 29, 2024, to promote sustainable development principles, conduct public awareness campaigns, expand industry-university partnerships, and implement educational and research projects.",
+    "gov2.center.established": "Established",
+    "gov2.center.establishedDate": "May 29, 2024",
+    "gov2.center.leader": "Head of Center",
+    "gov2.center.leaderName": "Nasiba Sirac qizi Amirbebyova",
+    "gov2.center.mission": "Mission",
+    "gov2.center.missionDesc": "To promote sustainable development principles, conduct public awareness campaigns, expand industry-university partnerships, and implement educational and research projects aligned with the UN Sustainable Development Goals.",
+    "gov2.center.activities": "Key Activities",
+    "gov2.center.activity1": "International projects (REFRESH Erasmus+)",
+    "gov2.center.activity2": "Global Sustainable Development Congress participation (Bangkok)",
+    "gov2.center.activity3": "SDG training for academic staff",
+    "gov2.center.activity4": "Technical University of Denmark collaboration",
+    "gov2.center.activity5": "International Erasmus+ training programs",
+
+    // Sustainable Development Committee (real data)
+    "gov2.sdcommittee.title": "Sustainable Development Committee",
+    "gov2.sdcommittee.desc": "Established by Scientific Council decision (Protocol No. 02, dated 25.10.2022) to promote sustainable development. The committee aims at ecological, economic, and social sustainability of the university and alignment with the UN's 17 Sustainable Development Goals.",
+    "gov2.sdcommittee.duties": "Key Responsibilities",
+    "gov2.sdcommittee.duty1": "Determining sustainable development goals and university priorities",
+    "gov2.sdcommittee.duty2": "Preparing action plans for sustainability",
+    "gov2.sdcommittee.duty3": "Organizing educational, scientific, and social programs",
+    "gov2.sdcommittee.duty4": "Conducting monitoring and evaluation",
+    "gov2.sdcommittee.duty5": "Preparing reports and developing partnerships",
+    "gov2.sdcommittee.duty6": "Supporting national and international initiatives",
+    "gov2.sdcommittee.composition": "Committee Composition",
+    "gov2.sdcommittee.charter": "Committee Charter",
+
+    // Internationalization Policy
+    "gov2.policy16.title": "Internationalization Policy",
+    "gov2.policy16.desc": "Strategic policy guiding the university's internationalization efforts, including academic exchange programs, global partnerships, and cross-border research collaboration.",
+
     // Strategy & Reporting
     "strat.intro": "Sumgayit State University is gradually integrating sustainability principles into its institutional strategy and planning processes. The University aligns its activities with the United Nations Sustainable Development Goals (SDGs) and works to monitor progress through internal reporting and evaluation mechanisms.",
     "strat.section1.title": "Climate Action and Sustainability Strategy",
@@ -449,6 +482,9 @@ export const translations: Record<Language, Record<string, string>> = {
     "edu2.course5.desc": "Creating livable, efficient, and green cities.",
     "edu2.course6.title": "MSc in Sustainable Development",
     "edu2.course6.desc": "Advanced interdisciplinary master's program.",
+    "edu2.allCourses.title": "Sustainable Education — All Courses 2026",
+    "edu2.allCourses.desc": "Explore our complete catalog of sustainability-integrated courses for the 2026 academic year. This document provides a comprehensive overview of all programs embedding sustainability principles across disciplines.",
+    "edu2.allCourses.download": "Download Full Catalog",
     "edu2.section3.title": "Student Sustainability Initiatives",
     "edu2.init1.title": "Academic Freedom Policy",
     "edu2.init1.desc": "Policy ensuring the protection of academic freedom, open inquiry, and intellectual diversity within the university.",
@@ -874,6 +910,39 @@ export const translations: Record<Language, Record<string, string>> = {
     "gov2.commitment4.desc": "Yerli maraqlı tərəflərlə əməkdaşlıq yanaşması.",
     "gov2.cta": "İdarəetmə Haqqında Daha Ətraflı",
 
+    // Dayanıqlı İnkişaf Mərkəzi
+    "gov2.center.title": "Dayanıqlı İnkişaf Mərkəzi",
+    "gov2.center.desc": "Dayanıqlı İnkişaf Mərkəzi 29 may 2024-cü il tarixli əmrlə dayanıqlı inkişaf prinsiplərinin təbliği, ictimai maarifləndirmə kampaniyalarının aparılması, sənaye-universitet tərəfdaşlıqlarının genişləndirilməsi, təhsil və tədqiqat layihələrinin həyata keçirilməsi məqsədilə yaradılmışdır.",
+    "gov2.center.established": "Yaranma tarixi",
+    "gov2.center.establishedDate": "29 may 2024",
+    "gov2.center.leader": "Mərkəzin rəhbəri",
+    "gov2.center.leaderName": "Nəsibə Sirac qızı Əmirbəyova",
+    "gov2.center.mission": "Missiya",
+    "gov2.center.missionDesc": "Dayanıqlı inkişaf prinsiplərinin təbliği, ictimai maarifləndirmə kampaniyalarının aparılması, sənaye-universitet tərəfdaşlıqlarının genişləndirilməsi və BMT-nin Dayanıqlı İnkişaf Məqsədlərinə uyğun təhsil və tədqiqat layihələrinin həyata keçirilməsi.",
+    "gov2.center.activities": "Əsas Fəaliyyətlər",
+    "gov2.center.activity1": "Beynəlxalq layihələr (REFRESH Erasmus+)",
+    "gov2.center.activity2": "Banqkokda Qlobal Dayanıqlı İnkişaf Konqresində iştirak",
+    "gov2.center.activity3": "Akademik heyət üçün DİM təlimləri",
+    "gov2.center.activity4": "Danimarka Texniki Universiteti ilə əməkdaşlıq",
+    "gov2.center.activity5": "Beynəlxalq Erasmus+ təlim proqramları",
+
+    // Dayanıqlı İnkişaf Komitəsi (real data)
+    "gov2.sdcommittee.title": "Dayanıqlı İnkişaf Komitəsi",
+    "gov2.sdcommittee.desc": "Elmi Şuranın qərarı ilə (Protokol №02, 25.10.2022-ci il tarixli) dayanıqlı inkişafın təşviqi məqsədilə yaradılmışdır. Komitə universitetin ekoloji, iqtisadi və sosial dayanıqlılığını və BMT-nin 17 Dayanıqlı İnkişaf Məqsədinə uyğunluğunu hədəfləyir.",
+    "gov2.sdcommittee.duties": "Əsas Vəzifələr",
+    "gov2.sdcommittee.duty1": "Dayanıqlı inkişaf məqsədlərinin və universitet prioritetlərinin müəyyən edilməsi",
+    "gov2.sdcommittee.duty2": "Dayanıqlılıq üçün fəaliyyət planlarının hazırlanması",
+    "gov2.sdcommittee.duty3": "Təhsil, elmi və sosial proqramların təşkili",
+    "gov2.sdcommittee.duty4": "Monitorinq və qiymətləndirmənin aparılması",
+    "gov2.sdcommittee.duty5": "Hesabatların hazırlanması və tərəfdaşlıqların inkişafı",
+    "gov2.sdcommittee.duty6": "Milli və beynəlxalq təşəbbüslərin dəstəklənməsi",
+    "gov2.sdcommittee.composition": "Komitənin Tərkibi",
+    "gov2.sdcommittee.charter": "Komitənin Əsasnaməsi",
+
+    // Beynəlmiləlləşmə Siyasəti
+    "gov2.policy16.title": "Beynəlmiləlləşmə Siyasəti",
+    "gov2.policy16.desc": "Universitetin beynəlmiləlləşmə səylərini, o cümlədən akademik mübadilə proqramlarını, qlobal tərəfdaşlıqları və transsərhəd tədqiqat əməkdaşlığını istiqamətləndirən strateji siyasət.",
+
     // Strategy & Reporting - AZ
     "strat.intro": "Sumqayıt Dövlət Universiteti davamlılıq prinsiplərini tədricən institusional strategiya və planlaşdırma proseslərinə inteqrasiya edir. Universitet fəaliyyətini BMT-nin Dayanıqlı İnkişaf Məqsədləri (DİM) ilə uyğunlaşdırır və daxili hesabat və qiymətləndirmə mexanizmləri vasitəsilə irəliləyişi izləyir.",
     "strat.section1.title": "İqlim Fəalliyəti və Dayanıqlılıq Strategiyası",
@@ -978,6 +1047,9 @@ export const translations: Record<Language, Record<string, string>> = {
     "edu2.course5.desc": "Yaşana bilən, səmərəli və yaşıl şəhərlərin yaradılması.",
     "edu2.course6.title": "Davamlı İnkişaf üzrə Magistratura",
     "edu2.course6.desc": "Qabaqcıl fənlərarası magistr proqramı.",
+    "edu2.allCourses.title": "Davamlı Təhsil — Bütün Kurslar 2026",
+    "edu2.allCourses.desc": "2026 tədris ili üçün davamlılıq inteqrasiya edilmiş kursların tam kataloqunu araşdırın. Bu sənəd fənlərarası davamlılıq prinsiplərini əhatə edən bütün proqramların ətraflı icmalını təqdim edir.",
+    "edu2.allCourses.download": "Tam Kataloqu Yükləyin",
     "edu2.section3.title": "Tələbə Davamlılıq Təşəbbüsləri",
     "edu2.init1.title": "Akademik Azadlıq Siyasəti",
     "edu2.init1.desc": "Universitetdə akademik azadlığın, açıq tədqiqatın və intellektual müxtəlifliyin qorunmasını təmin edən siyasət.",

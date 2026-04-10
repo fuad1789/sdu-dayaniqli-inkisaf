@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:sdu.edu.az)",
+      "Bash(curl -L -o \"C:/Users/FUAD/Desktop/Dayaniqli-inkisaf/public/Student-Sustainability-Initiatives/Committee_Composition.pdf\" \"https://sdu.edu.az/userfiles/file/pdf/22222.pdf\")"
+    ]
+  }
+}

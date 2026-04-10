@@ -10,6 +10,7 @@ import {
   Lightbulb,
   ChevronRight,
   FileText,
+  Download,
 } from "lucide-react";
 import Link from "next/link";
 import { useLanguage } from "@/components/LanguageContext";
@@ -176,6 +177,41 @@ export default function SustainableEducationPage() {
         </div>
       </section>
 
+      {/* All Courses 2026 — Download Card */}
+      <section className="max-w-6xl mx-auto px-4 py-20">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="bg-gradient-to-r from-rose-600 to-red-700 rounded-3xl shadow-xl px-8 py-10 text-white"
+        >
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+            <div className="flex items-start gap-4">
+              <div className="w-14 h-14 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center shrink-0">
+                <BookOpen className="w-7 h-7" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold mb-1">
+                  {t("edu2.allCourses.title")}
+                </h2>
+                <p className="text-rose-100 text-sm leading-relaxed max-w-2xl">
+                  {t("edu2.allCourses.desc")}
+                </p>
+              </div>
+            </div>
+            <a
+              href="/Student-Sustainability-Initiatives/Sustainable Education_all courses 2026.pdf"
+              download
+              className="inline-flex items-center gap-2 bg-white text-rose-700 font-semibold px-6 py-3 rounded-xl hover:bg-rose-50 transition-colors text-sm shrink-0 self-start sm:self-center"
+            >
+              <Download className="w-4 h-4" />
+              {t("edu2.allCourses.download")}
+            </a>
+          </div>
+        </motion.div>
+      </section>
+
       {/* Student Sustainability Initiatives */}
       <section className="max-w-6xl mx-auto px-4 py-20">
         <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-8 text-center">
@@ -259,12 +295,13 @@ export default function SustainableEducationPage() {
       {/* CTA */}
       <section className="bg-rose-600 py-16 px-4 text-center text-white">
         <h2 className="text-2xl font-bold mb-3">{t("edu2.cta")}</h2>
-        <Link
-          href="/"
+        <a
+          href="/Student-Sustainability-Initiatives/Sustainable Education_all courses 2026.pdf"
+          download
           className="inline-flex items-center gap-2 bg-white text-rose-700 font-semibold px-6 py-3 rounded-xl hover:bg-rose-50 transition-colors"
         >
-          {t("edu.cta.btn")} <ChevronRight className="w-4 h-4" />
-        </Link>
+          <Download className="w-4 h-4" /> {t("edu.cta.btn")}
+        </a>
       </section>
     </main>
   );
