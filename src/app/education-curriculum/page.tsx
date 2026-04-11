@@ -11,6 +11,10 @@ import {
   ChevronRight,
   FileText,
   Download,
+  Music,
+  Palette,
+  Theater,
+  Trophy,
 } from "lucide-react";
 import Link from "next/link";
 import { useLanguage } from "@/components/LanguageContext";
@@ -64,10 +68,24 @@ export default function SustainableEducationPage() {
   ];
 
   const ecoActivities = [
-    t("edu2.eco1.title"),
-    t("edu2.eco2.title"),
-    t("edu2.eco3.title"),
-    t("edu2.eco4.title"),
+    t("edu2.ecoclub.act1"),
+    t("edu2.ecoclub.act2"),
+    t("edu2.ecoclub.act3"),
+    t("edu2.ecoclub.act4"),
+    t("edu2.ecoclub.act5"),
+    t("edu2.ecoclub.act6"),
+    t("edu2.ecoclub.act7"),
+    t("edu2.ecoclub.act8"),
+  ];
+
+  const youthClubGroups = [
+    { title: t("edu2.youthclub.g1.title"), desc: t("edu2.youthclub.g1.desc"), icon: Music, color: "bg-pink-50 dark:bg-pink-900/20 text-pink-600 dark:text-pink-400" },
+    { title: t("edu2.youthclub.g2.title"), desc: t("edu2.youthclub.g2.desc"), icon: Theater, color: "bg-violet-50 dark:bg-violet-900/20 text-violet-600 dark:text-violet-400" },
+    { title: t("edu2.youthclub.g3.title"), desc: t("edu2.youthclub.g3.desc"), icon: Palette, color: "bg-amber-50 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400" },
+    { title: t("edu2.youthclub.g4.title"), desc: t("edu2.youthclub.g4.desc"), icon: Music, color: "bg-sky-50 dark:bg-sky-900/20 text-sky-600 dark:text-sky-400" },
+    { title: t("edu2.youthclub.g5.title"), desc: t("edu2.youthclub.g5.desc"), icon: Music, color: "bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400" },
+    { title: t("edu2.youthclub.g6.title"), desc: t("edu2.youthclub.g6.desc"), icon: Trophy, color: "bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400" },
+    { title: t("edu2.youthclub.g7.title"), desc: t("edu2.youthclub.g7.desc"), icon: Palette, color: "bg-teal-50 dark:bg-teal-900/20 text-teal-600 dark:text-teal-400" },
   ];
 
   const workshops = [
@@ -244,13 +262,19 @@ export default function SustainableEducationPage() {
         </div>
       </section>
 
-      {/* Eco-Club Activities */}
+      {/* Eco-Club */}
       <section className="bg-white dark:bg-slate-800/50 border-y border-slate-200 dark:border-slate-700 py-16 px-4">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-8 text-center">
-            {t("edu2.section4.title")}
-          </h2>
-          <div className="flex flex-wrap justify-center gap-4">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex items-center justify-center gap-3 mb-2">
+            <Leaf className="w-7 h-7 text-emerald-500" />
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
+              {t("edu2.ecoclub.title")}
+            </h2>
+          </div>
+          <p className="text-slate-500 dark:text-slate-400 text-center max-w-3xl mx-auto mb-8 text-sm leading-relaxed">
+            {t("edu2.ecoclub.desc")}
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
             {ecoActivities.map((act, i) => (
               <motion.div
                 key={act}
@@ -259,13 +283,69 @@ export default function SustainableEducationPage() {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true }}
-                className="bg-slate-50 dark:bg-slate-800 rounded-xl px-5 py-3 border border-slate-200 dark:border-slate-700 flex items-center gap-3 hover:shadow-lg transition-shadow"
+                className="bg-slate-50 dark:bg-slate-800 rounded-xl px-5 py-4 border border-slate-200 dark:border-slate-700 flex items-start gap-3 hover:shadow-lg transition-shadow"
               >
-                <Leaf className="w-5 h-5 text-emerald-500 shrink-0" />
+                <Leaf className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
                 <span className="font-medium text-slate-700 dark:text-slate-200 text-sm">{act}</span>
               </motion.div>
             ))}
           </div>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a
+              href="/Ecoclub/Ekoklubun_uzvleri.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 font-medium px-5 py-3 rounded-xl border border-emerald-200 dark:border-emerald-800 hover:shadow-lg transition-shadow text-sm"
+            >
+              <FileText className="w-4 h-4" />
+              {t("edu2.ecoclub.members_pdf")}
+            </a>
+            <a
+              href="/Ecoclub/Ekoklubun_esasnamesi.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 font-medium px-5 py-3 rounded-xl border border-emerald-200 dark:border-emerald-800 hover:shadow-lg transition-shadow text-sm"
+            >
+              <FileText className="w-4 h-4" />
+              {t("edu2.ecoclub.charter_pdf")}
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Student-Youth Club */}
+      <section className="max-w-6xl mx-auto px-4 py-20">
+        <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-2 text-center">
+          {t("edu2.youthclub.title")}
+        </h2>
+        <p className="text-slate-500 dark:text-slate-400 text-center max-w-3xl mx-auto mb-3 text-sm leading-relaxed">
+          {t("edu2.youthclub.desc")}
+        </p>
+        <p className="text-center text-sm font-medium text-rose-600 dark:text-rose-400 mb-10">
+          {t("edu2.youthclub.director")}
+        </p>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {youthClubGroups.map((group, i) => (
+            <motion.div
+              key={group.title}
+              custom={i}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              className="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-shadow"
+            >
+              <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${group.color}`}>
+                <group.icon className="w-6 h-6" />
+              </div>
+              <h3 className="font-bold text-slate-900 dark:text-white text-lg mb-2">
+                {group.title}
+              </h3>
+              <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                {group.desc}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </section>
 

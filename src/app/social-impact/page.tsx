@@ -9,6 +9,14 @@ import {
   GraduationCap,
   Globe,
   ChevronRight,
+  Brain,
+  Stethoscope,
+  Dumbbell,
+  Clock,
+  MapPin,
+  Download,
+  Trophy,
+  FileText,
 } from "lucide-react";
 import Link from "next/link";
 import { useLanguage } from "@/components/LanguageContext";
@@ -231,6 +239,184 @@ export default function CommunityImpactPage() {
               <span className="font-medium text-slate-700 dark:text-slate-200 text-sm">{a}</span>
             </motion.div>
           ))}
+        </div>
+      </section>
+
+      {/* Student Wellbeing Services */}
+      <section className="max-w-6xl mx-auto px-4 py-20">
+        <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-10 text-center">
+          {t("comm.wellbeing.title")}
+        </h2>
+        <div className="grid lg:grid-cols-2 gap-8">
+          {/* Psychological Service */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="bg-white dark:bg-slate-800 rounded-2xl p-8 border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-shadow"
+          >
+            <div className="w-12 h-12 rounded-xl bg-purple-50 dark:bg-purple-900/20 flex items-center justify-center mb-4">
+              <Brain className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+            </div>
+            <h3 className="font-bold text-slate-900 dark:text-white text-xl mb-3">
+              {t("comm.psych.title")}
+            </h3>
+            <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-4">
+              {t("comm.psych.desc")}
+            </p>
+            <h4 className="font-semibold text-slate-700 dark:text-slate-300 text-sm mb-2">
+              {t("comm.psych.services.title")}
+            </h4>
+            <ul className="space-y-2 mb-5">
+              {["s1", "s2", "s3", "s4", "s5"].map((key) => (
+                <li key={key} className="flex items-start gap-2 text-sm text-slate-500 dark:text-slate-400">
+                  <ChevronRight className="w-4 h-4 text-purple-500 shrink-0 mt-0.5" />
+                  {t(`comm.psych.${key}`)}
+                </li>
+              ))}
+            </ul>
+            <div className="flex flex-col gap-2 text-sm">
+              <span className="flex items-center gap-2 text-slate-600 dark:text-slate-300">
+                <Clock className="w-4 h-4 text-purple-500" />
+                {t("comm.psych.schedule")}
+              </span>
+              <span className="flex items-center gap-2 text-slate-600 dark:text-slate-300">
+                <MapPin className="w-4 h-4 text-purple-500" />
+                {t("comm.psych.location")}
+              </span>
+            </div>
+          </motion.div>
+
+          {/* Medical Service */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="bg-white dark:bg-slate-800 rounded-2xl p-8 border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-shadow"
+          >
+            <div className="w-12 h-12 rounded-xl bg-red-50 dark:bg-red-900/20 flex items-center justify-center mb-4">
+              <Stethoscope className="w-6 h-6 text-red-600 dark:text-red-400" />
+            </div>
+            <h3 className="font-bold text-slate-900 dark:text-white text-xl mb-3">
+              {t("comm.medical.title")}
+            </h3>
+            <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-4">
+              {t("comm.medical.desc")}
+            </p>
+            <ul className="space-y-2 mb-5">
+              {["s1", "s2", "s3", "s4", "s5"].map((key) => (
+                <li key={key} className="flex items-start gap-2 text-sm text-slate-500 dark:text-slate-400">
+                  <ChevronRight className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
+                  {t(`comm.medical.${key}`)}
+                </li>
+              ))}
+            </ul>
+            <div className="flex flex-col gap-2 text-sm">
+              <span className="flex items-center gap-2 text-slate-600 dark:text-slate-300">
+                <Clock className="w-4 h-4 text-red-500" />
+                {t("comm.medical.schedule")}
+              </span>
+              <span className="flex items-center gap-2 text-slate-600 dark:text-slate-300">
+                <MapPin className="w-4 h-4 text-red-500" />
+                {t("comm.medical.location")}
+              </span>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Sports Club */}
+      <section className="bg-white dark:bg-slate-800/50 border-y border-slate-200 dark:border-slate-700 py-16 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex items-center justify-center gap-3 mb-2">
+            <Dumbbell className="w-7 h-7 text-orange-500" />
+            <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
+              {t("comm.sports.title")}
+            </h2>
+          </div>
+          <p className="text-slate-500 dark:text-slate-400 text-center max-w-3xl mx-auto mb-3 text-sm leading-relaxed">
+            {t("comm.sports.desc")}
+          </p>
+          <p className="text-center text-sm font-medium text-orange-600 dark:text-orange-400 mb-10">
+            {t("comm.sports.director")}
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-10">
+            {/* Sports Sections */}
+            <div>
+              <h3 className="font-bold text-slate-900 dark:text-white text-lg mb-4 flex items-center gap-2">
+                <Trophy className="w-5 h-5 text-orange-500" />
+                {t("comm.sports.sections.title")}
+              </h3>
+              <div className="grid grid-cols-2 gap-3">
+                {["sec1", "sec2", "sec3", "sec4", "sec5", "sec6", "sec7", "sec8"].map((key, i) => (
+                  <motion.div
+                    key={key}
+                    custom={i}
+                    variants={fadeUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true }}
+                    className="bg-slate-50 dark:bg-slate-800 rounded-xl px-4 py-3 border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-700 dark:text-slate-200 flex items-center gap-2"
+                  >
+                    <Dumbbell className="w-4 h-4 text-orange-500 shrink-0" />
+                    {t(`comm.sports.${key}`)}
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Sports Facilities */}
+            <div>
+              <h3 className="font-bold text-slate-900 dark:text-white text-lg mb-4 flex items-center gap-2">
+                <MapPin className="w-5 h-5 text-orange-500" />
+                {t("comm.sports.facilities.title")}
+              </h3>
+              <div className="space-y-2">
+                {["fac1", "fac2", "fac3", "fac4", "fac5", "fac6", "fac7", "fac8", "fac9"].map((key, i) => (
+                  <motion.div
+                    key={key}
+                    custom={i}
+                    variants={fadeUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true }}
+                    className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300"
+                  >
+                    <ChevronRight className="w-4 h-4 text-orange-500 shrink-0" />
+                    {t(`comm.sports.${key}`)}
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Sports Partnerships */}
+          <div>
+            <h3 className="font-bold text-slate-900 dark:text-white text-lg mb-4 text-center">
+              {t("comm.sports.partners.title")}
+            </h3>
+            <div className="flex flex-wrap justify-center gap-4">
+              {["partner1", "partner2", "partner3"].map((key, i) => (
+                <motion.div
+                  key={key}
+                  custom={i}
+                  variants={fadeUp}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true }}
+                  className="bg-slate-50 dark:bg-slate-800 rounded-xl px-6 py-4 border border-slate-200 dark:border-slate-700 flex items-center gap-3 hover:shadow-lg transition-shadow"
+                >
+                  <HandshakeIcon className="w-5 h-5 text-orange-500 shrink-0" />
+                  <span className="font-medium text-slate-700 dark:text-slate-200 text-sm">
+                    {t(`comm.sports.${key}`)}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
