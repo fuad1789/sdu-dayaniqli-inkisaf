@@ -97,7 +97,7 @@ export default function ResearchPage() {
       </section>
 
       {/* Sumqayit Map Context */}
-      <section className="max-w-6xl mx-auto px-4 py-20">
+      <section id="sumqayit-context" className="max-w-6xl mx-auto px-4 py-20 scroll-mt-24">
         <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-10 text-center">
           {t("res2.section1.title")}
         </h2>
@@ -105,7 +105,7 @@ export default function ResearchPage() {
       </section>
 
       {/* SDG-related Research Projects */}
-      <section className="bg-white dark:bg-slate-800/50 border-y border-slate-200 dark:border-slate-700 py-16 px-4">
+      <section id="research-projects" className="bg-white dark:bg-slate-800/50 border-y border-slate-200 dark:border-slate-700 py-16 px-4 scroll-mt-24">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-8 text-center">
             {t("res2.section2.title")}
@@ -137,7 +137,7 @@ export default function ResearchPage() {
       </section>
 
       {/* Research Partnerships */}
-      <section className="max-w-6xl mx-auto px-4 py-20">
+      <section id="research-partnerships" className="max-w-6xl mx-auto px-4 py-20 scroll-mt-24">
         <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-8 text-center">
           {t("res2.section3.title")}
         </h2>
@@ -162,7 +162,7 @@ export default function ResearchPage() {
       </section>
 
       {/* Research Centres & Laboratories */}
-      <section className="bg-white dark:bg-slate-800/50 border-y border-slate-200 dark:border-slate-700 py-16 px-4">
+      <section id="research-centres" className="bg-white dark:bg-slate-800/50 border-y border-slate-200 dark:border-slate-700 py-16 px-4 scroll-mt-24">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-8 text-center">
             {t("res2.section4.title")}
@@ -194,7 +194,7 @@ export default function ResearchPage() {
       </section>
 
       {/* Student Research Projects */}
-      <section className="max-w-6xl mx-auto px-4 py-20">
+      <section id="student-research" className="max-w-6xl mx-auto px-4 py-20 scroll-mt-24">
         <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-8 text-center">
           {t("res2.section5.title")}
         </h2>

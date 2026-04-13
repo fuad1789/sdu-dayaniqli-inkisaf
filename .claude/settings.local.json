@@ -1,5 +1,13 @@
 {
   "permissions": {
-    "allow": ["Bash(*)", "Read(*)", "Write(*)", "Edit(*)", "MultiEdit(*)"]
+    "allow": [
+      "Bash(*)",
+      "Read(*)",
+      "Write(*)",
+      "Edit(*)",
+      "MultiEdit(*)",
+      "WebFetch(domain:sdu.edu.az)",
+      "WebFetch(domain:www.sdu.edu.az)"
+    ]
   }
 }

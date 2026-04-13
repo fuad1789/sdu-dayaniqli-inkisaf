@@ -22,6 +22,7 @@ import {
   Download,
   ClipboardList,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useLanguage } from "@/components/LanguageContext";
 
@@ -134,7 +135,7 @@ export default function GovernanceAccountabilityPage() {
       </section>
 
       {/* Institutional Governance & Sustainability Framework */}
-      <section className="max-w-6xl mx-auto px-4 py-20">
+      <section id="institutional-governance" className="max-w-6xl mx-auto px-4 py-20 scroll-mt-24">
         <div className="text-center mb-14">
           <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-3">
             {t("gov2.section1.title")}
@@ -146,7 +147,7 @@ export default function GovernanceAccountabilityPage() {
       </section>
 
       {/* Key Policies */}
-      <section className="bg-white dark:bg-slate-800/50 border-y border-slate-200 dark:border-slate-700 py-16 px-4">
+      <section id="key-policies" className="bg-white dark:bg-slate-800/50 border-y border-slate-200 dark:border-slate-700 py-16 px-4 scroll-mt-24">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-8 text-center">
             {t("gov2.section2.title")}
@@ -186,7 +187,7 @@ export default function GovernanceAccountabilityPage() {
       </section>
 
       {/* Sustainable Development Center */}
-      <section className="max-w-6xl mx-auto px-4 py-20">
+      <section id="sustainability-center" className="max-w-6xl mx-auto px-4 py-20 scroll-mt-24">
         <div className="text-center mb-14">
           <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-3">
             {t("gov2.center.title")}
@@ -196,15 +197,34 @@ export default function GovernanceAccountabilityPage() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
-          {/* Center Info Card */}
+        {/* Image + Info side by side */}
+        <div className="grid lg:grid-cols-5 gap-8 mb-8">
+          {/* Image — 2 cols */}
+          <motion.div
+            initial={{ opacity: 0, x: -24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-2 relative aspect-square rounded-3xl overflow-hidden shadow-lg"
+          >
+            <Image
+              src="/Student-Sustainability-Initiatives/sustainability-center.jpg"
+              alt={t("gov2.center.title")}
+              fill
+              sizes="(max-width: 1024px) 100vw, 460px"
+              className="object-cover"
+              priority
+            />
+          </motion.div>
+
+          {/* Info — 3 cols */}
           <motion.div
             variants={fadeUp}
             custom={0}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="bg-white dark:bg-slate-800 rounded-2xl p-8 border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-shadow"
+            className="lg:col-span-3 bg-white dark:bg-slate-800 rounded-2xl p-8 border border-slate-200 dark:border-slate-700 flex flex-col justify-center"
           >
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-900/20 flex items-center justify-center">
@@ -214,7 +234,7 @@ export default function GovernanceAccountabilityPage() {
                 {t("gov2.center.title")}
               </h3>
             </div>
-            <div className="space-y-4">
+            <div className="space-y-5">
               <div className="flex items-start gap-3">
                 <Calendar className="w-5 h-5 text-blue-500 mt-0.5 shrink-0" />
                 <div>
@@ -238,46 +258,46 @@ export default function GovernanceAccountabilityPage() {
               </div>
             </div>
           </motion.div>
-
-          {/* Center Activities Card */}
-          <motion.div
-            variants={fadeUp}
-            custom={1}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            className="bg-white dark:bg-slate-800 rounded-2xl p-8 border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-shadow"
-          >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center">
-                <Globe className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-              </div>
-              <h3 className="font-bold text-slate-900 dark:text-white text-xl">
-                {t("gov2.center.activities")}
-              </h3>
-            </div>
-            <ul className="space-y-3">
-              {centerActivities.map((activity, i) => (
-                <motion.li
-                  key={i}
-                  custom={i + 2}
-                  variants={fadeUp}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true }}
-                  className="flex items-start gap-3"
-                >
-                  <CheckCircle2 className="w-5 h-5 text-emerald-500 mt-0.5 shrink-0" />
-                  <span className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">{activity}</span>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
         </div>
+
+        {/* Center Activities Card — full width */}
+        <motion.div
+          variants={fadeUp}
+          custom={1}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="bg-white dark:bg-slate-800 rounded-2xl p-8 border border-slate-200 dark:border-slate-700"
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center">
+              <Globe className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+            </div>
+            <h3 className="font-bold text-slate-900 dark:text-white text-xl">
+              {t("gov2.center.activities")}
+            </h3>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-3">
+            {centerActivities.map((activity, i) => (
+              <motion.div
+                key={i}
+                custom={i + 2}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                className="flex items-start gap-3 bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4"
+              >
+                <CheckCircle2 className="w-5 h-5 text-emerald-500 mt-0.5 shrink-0" />
+                <span className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">{activity}</span>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </section>
 
       {/* Sustainable Development Committee */}
-      <section className="bg-white dark:bg-slate-800/50 border-y border-slate-200 dark:border-slate-700 py-16 px-4">
+      <section id="sd-committee" className="bg-white dark:bg-slate-800/50 border-y border-slate-200 dark:border-slate-700 py-16 px-4 scroll-mt-24">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
             <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-3">
@@ -369,7 +389,7 @@ export default function GovernanceAccountabilityPage() {
       </section>
 
       {/* Institutional Commitments */}
-      <section className="bg-white dark:bg-slate-800/50 border-y border-slate-200 dark:border-slate-700 py-16 px-4">
+      <section id="institutional-commitments" className="bg-white dark:bg-slate-800/50 border-y border-slate-200 dark:border-slate-700 py-16 px-4 scroll-mt-24">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-8 text-center">
             {t("gov2.section4.title")}

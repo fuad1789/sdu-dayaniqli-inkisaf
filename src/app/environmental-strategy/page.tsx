@@ -125,7 +125,7 @@ export default function StrategyReportingPage() {
       </section>
 
       {/* Climate Action & Sustainability Strategy */}
-      <section className="max-w-6xl mx-auto px-4 py-20">
+      <section id="climate-action-strategy" className="max-w-6xl mx-auto px-4 py-20 scroll-mt-24">
         <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-10 text-center">
           {t("strat.section1.title")}
         </h2>
@@ -155,7 +155,7 @@ export default function StrategyReportingPage() {
       </section>
 
       {/* SDG Alignment */}
-      <section className="bg-white dark:bg-slate-800/50 border-y border-slate-200 dark:border-slate-700 py-16 px-4">
+      <section id="sdg-alignment" className="bg-white dark:bg-slate-800/50 border-y border-slate-200 dark:border-slate-700 py-16 px-4 scroll-mt-24">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
             {t("strat.section2.title")}
@@ -194,7 +194,7 @@ export default function StrategyReportingPage() {
       </section>
 
       {/* Sustainability Goals & Priorities */}
-      <section className="max-w-4xl mx-auto px-4 py-20">
+      <section id="sustainability-goals" className="max-w-4xl mx-auto px-4 py-20 scroll-mt-24">
         <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-8 text-center">
           {t("strat.section3.title")}
         </h2>
@@ -239,7 +239,7 @@ export default function StrategyReportingPage() {
       </section>
 
       {/* SDG Reports */}
-      <section className="bg-white dark:bg-slate-800/50 border-y border-slate-200 dark:border-slate-700 py-16 px-4">
+      <section id="sdg-reports" className="bg-white dark:bg-slate-800/50 border-y border-slate-200 dark:border-slate-700 py-16 px-4 scroll-mt-24">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-8 text-center">
             {t("strat.section4.title")}
@@ -281,7 +281,7 @@ export default function StrategyReportingPage() {
       </section>
 
       {/* Key Indicators */}
-      <section className="max-w-6xl mx-auto px-4 py-20">
+      <section id="key-indicators" className="max-w-6xl mx-auto px-4 py-20 scroll-mt-24">
         <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-10 text-center">
           {t("strat.section5.title")}
         </h2>

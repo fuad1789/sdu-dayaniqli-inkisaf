@@ -1,17 +1,35 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { Download, Users, GraduationCap, Microscope, ArrowUpRight } from "lucide-react";
-import { cn } from "@/lib/utils";
+import {
+  GraduationCap,
+  Users,
+  Shield,
+  Microscope,
+  BarChart3,
+  ArrowUpRight,
+  Leaf,
+} from "lucide-react";
 import { useLanguage } from "./LanguageContext";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  show: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.1, duration: 0.5 },
+  }),
+};
 
 export default function BentoActivities() {
   const { t } = useLanguage();
+
   return (
     <section className="w-full py-24 bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
       <div className="container max-w-7xl mx-auto px-4 lg:px-8">
         <div className="text-center mb-16 max-w-2xl mx-auto">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -19,7 +37,7 @@ export default function BentoActivities() {
           >
             {t("bento.title")}
           </motion.h2>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -30,99 +48,192 @@ export default function BentoActivities() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-auto lg:auto-rows-[280px]">
-          
-          {/* 1. Education & Curriculum (Large card spanning 2 cols) */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-5">
+          {/* 1. Governance & Accountability — 3 cols */}
+          <motion.div
+            custom={0}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="md:col-span-2 lg:col-span-2 lg:row-span-2 relative overflow-hidden rounded-3xl p-6 sm:p-8 bg-gradient-to-br from-primary to-emerald-900 text-white group cursor-pointer min-h-[300px] lg:min-h-0 flex flex-col justify-end"
+            className="md:col-span-3 lg:col-span-2"
           >
-            {/* Abstract Topographic/Circuit SVG Pattern Overlay */}
-            <div className="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")" }} />
-            
-            <div className="absolute top-0 right-0 p-6 sm:p-8 opacity-[0.05] transform translate-x-4 -translate-y-4 group-hover:scale-110 transition-transform duration-500 pointer-events-none">
-              <GraduationCap className="w-48 h-48 sm:w-64 sm:h-64" />
-            </div>
-            <div className="relative z-10 w-full">
-              <div className="bg-white/20 backdrop-blur-md self-start p-3 rounded-2xl mb-6 inline-block">
-                <GraduationCap className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+            <Link
+              href="/governance-policy"
+              className="group block h-full relative overflow-hidden rounded-3xl p-8 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-950 text-white min-h-[320px] flex flex-col justify-between"
+            >
+              {/* Decorative circles */}
+              <div className="absolute -top-12 -right-12 w-40 h-40 rounded-full border border-white/[0.06] group-hover:scale-125 transition-transform duration-700 pointer-events-none" />
+              <div className="absolute -top-6 -right-6 w-28 h-28 rounded-full border border-white/[0.04] group-hover:scale-125 transition-transform duration-700 delay-75 pointer-events-none" />
+              <div className="absolute bottom-16 right-8 w-16 h-16 rounded-full bg-blue-500/10 group-hover:bg-blue-500/20 transition-colors duration-500 pointer-events-none" />
+
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-2xl bg-blue-500/20 flex items-center justify-center mb-6">
+                  <Shield className="w-6 h-6 text-blue-400" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">
+                  {t("bento.card3.title")}
+                </h3>
+                <p className="text-slate-400 text-sm leading-relaxed">
+                  {t("bento.card3.desc")}
+                </p>
               </div>
-              <h3 className="text-2xl sm:text-3xl font-bold mb-3">{t("bento.card1.title")}</h3>
-              <p className="text-emerald-50 text-base sm:text-lg max-w-md">
-                {t("bento.card1.desc")}
-              </p>
-              <div className="mt-6 sm:mt-8 flex items-center gap-2 font-medium">
+
+              <div className="relative z-10 flex items-center gap-2 font-medium text-sm text-slate-400 group-hover:text-blue-400 transition-colors mt-6">
+                <span>{t("bento.explore")}</span>
+                <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </div>
+            </Link>
+          </motion.div>
+
+          {/* 2. Strategy & Reporting — 2 cols */}
+          <motion.div
+            custom={1}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="md:col-span-3 lg:col-span-2"
+          >
+            <Link
+              href="/environmental-strategy"
+              className="group block h-full relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-600 to-emerald-800 p-8 text-white min-h-[320px] flex flex-col justify-between"
+            >
+              {/* Decorative leaf shapes */}
+              <div className="absolute top-6 right-6 opacity-[0.08] group-hover:opacity-[0.15] transition-opacity duration-500 pointer-events-none">
+                <Leaf className="w-28 h-28 rotate-45" />
+              </div>
+              <div className="absolute bottom-12 right-16 opacity-[0.05] pointer-events-none">
+                <Leaf className="w-16 h-16 -rotate-12" />
+              </div>
+
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center mb-6">
+                  <BarChart3 className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">
+                  {t("bento.card5.title")}
+                </h3>
+                <p className="text-emerald-100 text-sm leading-relaxed">
+                  {t("bento.card5.desc")}
+                </p>
+              </div>
+
+              <div className="relative z-10 flex items-center gap-2 font-medium text-sm text-emerald-200 group-hover:text-white transition-colors mt-6">
+                <span>{t("bento.explore")}</span>
+                <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </div>
+            </Link>
+          </motion.div>
+
+          {/* 3. Research — 1 col */}
+          <motion.div
+            custom={2}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="md:col-span-3 lg:col-span-2"
+          >
+            <Link
+              href="/sdg-research"
+              className="group block h-full relative overflow-hidden rounded-3xl bg-gradient-to-br from-amber-500 to-orange-600 p-8 text-white min-h-[320px] flex flex-col justify-between"
+            >
+              {/* Grid dots pattern */}
+              <div className="absolute inset-0 opacity-[0.08] pointer-events-none" style={{
+                backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)",
+                backgroundSize: "20px 20px",
+              }} />
+
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center mb-6">
+                  <Microscope className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">
+                  {t("bento.card4.title2")}
+                </h3>
+                <p className="text-amber-100 text-sm leading-relaxed">
+                  {t("bento.card4.desc2")}
+                </p>
+              </div>
+
+              <div className="relative z-10 flex items-center gap-2 font-medium text-sm text-amber-200 group-hover:text-white transition-colors mt-6">
+                <span>{t("bento.explore")}</span>
+                <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </div>
+            </Link>
+          </motion.div>
+
+          {/* 4. Education — 3 cols */}
+          <motion.div
+            custom={3}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="md:col-span-3"
+          >
+            <Link
+              href="/education-curriculum"
+              className="group block h-full rounded-3xl bg-white dark:bg-slate-800 p-8 border border-slate-200 dark:border-slate-700 hover:shadow-xl transition-all flex flex-col justify-between min-h-[240px]"
+            >
+              <div>
+                <div className="flex items-center gap-4 mb-5">
+                  <div className="w-12 h-12 rounded-2xl bg-rose-100 dark:bg-rose-900/30 flex items-center justify-center shrink-0">
+                    <GraduationCap className="w-6 h-6 text-rose-600 dark:text-rose-400" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">
+                    {t("bento.card1.title")}
+                  </h3>
+                </div>
+                <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                  {t("bento.card1.desc")}
+                </p>
+              </div>
+
+              <div className="flex items-center gap-2 font-medium text-sm text-slate-400 group-hover:text-primary transition-colors mt-6">
                 <span>{t("bento.card1.link")}</span>
-                <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </div>
-            </div>
+            </Link>
           </motion.div>
 
-          {/* 2. Social Impact & Inclusion (Medium card) */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+          {/* 5. Community & Social Impact — 3 cols */}
+          <motion.div
+            custom={4}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="md:col-span-2 lg:col-span-2 lg:row-span-1 relative overflow-hidden rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-800 p-6 sm:p-8 group cursor-pointer flex flex-col sm:flex-row items-start sm:items-center gap-6 min-h-[220px] lg:min-h-0"
+            className="md:col-span-3"
           >
-            {/* Placeholder Image space */}
-            <div className="w-full sm:w-32 h-40 sm:h-32 rounded-2xl bg-slate-100 dark:bg-slate-700 overflow-hidden flex-shrink-0 relative">
-               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=300&auto=format&fit=crop')] bg-cover bg-center group-hover:scale-110 transition-transform duration-500" />
-            </div>
-            <div className="flex-col">
-              <div className="p-2 bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 rounded-lg w-fit mb-4">
-                 <Users className="w-5 h-5" />
+            <Link
+              href="/social-impact"
+              className="group block h-full relative overflow-hidden rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-8 hover:shadow-xl transition-all flex flex-col justify-between min-h-[240px]"
+            >
+              {/* Accent strip */}
+              <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-cyan-500 via-blue-500 to-purple-500 rounded-l-3xl" />
+
+              <div>
+                <div className="flex items-center gap-4 mb-5">
+                  <div className="w-12 h-12 rounded-2xl bg-cyan-100 dark:bg-cyan-900/30 flex items-center justify-center shrink-0">
+                    <Users className="w-6 h-6 text-cyan-600 dark:text-cyan-400" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">
+                    {t("bento.card2.title")}
+                  </h3>
+                </div>
+                <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                  {t("bento.card2.desc")}
+                </p>
               </div>
-              <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2">{t("bento.card2.title")}</h3>
-              <p className="text-slate-600 dark:text-slate-400 text-sm">
-                {t("bento.card2.desc")}
-              </p>
-            </div>
-          </motion.div>
 
-          {/* 3. Governance & Policy (Small card) */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="md:col-span-1 lg:col-span-1 lg:row-span-1 rounded-3xl bg-slate-900 dark:bg-slate-950 p-6 sm:p-8 border border-slate-800 flex flex-col justify-start lg:justify-between gap-5 lg:gap-0 group cursor-pointer hover:bg-slate-800 transition-colors"
-          >
-            <div>
-              <h3 className="text-white font-bold text-lg sm:text-xl mb-2">{t("bento.card3.title")}</h3>
-              <p className="text-slate-400 text-sm md:text-xs xl:text-sm">
-                {t("bento.card3.desc")}
-              </p>
-            </div>
-            <button className="w-full flex justify-between items-center px-4 py-3 bg-white/10 hover:bg-white/20 rounded-xl text-white transition-colors">
-              <span className="text-xs sm:text-sm font-medium">{t("bento.card3.link")}</span>
-              <Download className="w-4 h-4" />
-            </button>
+              <div className="flex items-center gap-2 font-medium text-sm text-slate-400 group-hover:text-primary transition-colors mt-6">
+                <span>{t("bento.explore")}</span>
+                <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </div>
+            </Link>
           </motion.div>
-
-          {/* 4. SDG Research Outputs (Small card) */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="md:col-span-1 lg:col-span-1 lg:row-span-1 rounded-3xl bg-white dark:bg-slate-800 p-6 sm:p-8 border border-slate-200 dark:border-slate-800 flex flex-col justify-start lg:justify-between group cursor-pointer hover:shadow-lg transition-shadow"
-          >
-            <div className="p-3 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-600 dark:text-cyan-400 rounded-xl w-fit mb-5 lg:mb-0">
-              <Microscope className="w-5 h-5 sm:w-6 sm:h-6" />
-            </div>
-            <div>
-              <div className="text-[10px] sm:text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5 sm:mb-2 text-left">{t("bento.card4.badge")}</div>
-              <h3 className="text-slate-900 dark:text-white font-bold text-base sm:text-lg leading-tight group-hover:text-primary transition-colors text-left">
-                {t("bento.card4.title")}
-              </h3>
-            </div>
-          </motion.div>
-
         </div>
       </div>
     </section>
