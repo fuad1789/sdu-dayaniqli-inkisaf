@@ -175,7 +175,7 @@ export default function SustainableEducationPage() {
       </section>
 
       {/* All Courses 2026 — Download Card */}
-      <section className="max-w-6xl mx-auto px-4 py-20">
+      <section id="sustainable-education" className="max-w-6xl mx-auto px-4 py-20 scroll-mt-24">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}

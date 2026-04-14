@@ -79,6 +79,7 @@ export default function GovernanceAccountabilityPage() {
     t("gov2.sdcommittee.duty4"),
     t("gov2.sdcommittee.duty5"),
     t("gov2.sdcommittee.duty6"),
+    t("gov2.sdcommittee.duty7"),
   ];
 
   const commitments = [

@@ -130,6 +130,32 @@ export default function StrategyReportingPage() {
         </div>
       </section>
 
+      {/* Annual Sustainability Report */}
+      <section id="annual-report" className="max-w-4xl mx-auto px-4 pt-16 pb-8 scroll-mt-24">
+        <motion.a
+          href="/Student-Sustainability-Initiatives/Annual Sustainability Report 2025.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          variants={fadeUp}
+          custom={0}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="flex items-center gap-5 bg-emerald-50 dark:bg-emerald-900/20 rounded-2xl px-6 py-5 border-2 border-emerald-300 dark:border-emerald-700 hover:shadow-lg transition-all group"
+        >
+          <div className="w-14 h-14 rounded-xl bg-emerald-100 dark:bg-emerald-800/40 flex items-center justify-center shrink-0">
+            <BarChart3 className="w-7 h-7 text-emerald-600 dark:text-emerald-400" />
+          </div>
+          <div className="flex-1">
+            <h3 className="font-bold text-slate-900 dark:text-white text-lg group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+              {t("strat.annualReport.title")}
+            </h3>
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">2025 · PDF</p>
+          </div>
+          <Download className="w-5 h-5 text-emerald-500 shrink-0" />
+        </motion.a>
+      </section>
+
       {/* Climate Action & Sustainability Strategy */}
       <section id="climate-action-strategy" className="max-w-6xl mx-auto px-4 py-20 scroll-mt-24">
         <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-10 text-center">

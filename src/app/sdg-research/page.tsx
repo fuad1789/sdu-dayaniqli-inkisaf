@@ -230,7 +230,7 @@ export default function ResearchPage() {
             {t("res2.performance.desc")}
           </p>
           <motion.a
-            href="/Student-Sustainability-Initiatives/SSU_QS_Sustainability.pdf"
+            href="/Student-Sustainability-Initiatives/SSU Research Performance in SDGs.pdf"
             target="_blank"
             rel="noopener noreferrer"
             variants={fadeUp}

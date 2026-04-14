@@ -384,6 +384,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "gov2.sdcommittee.duty4": "Conducting monitoring and evaluation",
     "gov2.sdcommittee.duty5": "Preparing reports and developing partnerships",
     "gov2.sdcommittee.duty6": "Supporting national and international initiatives",
+    "gov2.sdcommittee.duty7": "Providing annual trainings on environmental and social sustainability",
     "gov2.sdcommittee.composition": "Committee Composition",
     "gov2.sdcommittee.charter": "Committee Charter",
 
@@ -428,6 +429,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "strat.goal4.desc": "Reduce water consumption by 40% through efficiency measures.",
     "strat.goal5.title": "Green Education for All",
     "strat.goal5.desc": "Integrate sustainability into every degree program.",
+    "strat.annualReport.title": "Annual Sustainability Report 2025",
     "strat.section4.title": "SDG Reports & Progress",
     "strat.report1.title": "Annual Sustainability Report 2024",
     "strat.report2.title": "SDG Progress Report 2023",
@@ -486,7 +488,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "res2.student5.title": "Grant Recipients",
     "res2.performance.title": "Research Performance in SDGs",
     "res2.performance.desc": "SSU's research performance evaluated against the QS Sustainability Rankings framework, demonstrating our contribution to the United Nations Sustainable Development Goals.",
-    "res2.performance.report": "SSU QS Sustainability Report",
+    "res2.performance.report": "SSU Research Performance in SDGs",
     "res2.cta": "Explore Research Opportunities",
 
     // Sustainable Education (Page 2)
@@ -1082,6 +1084,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "gov2.sdcommittee.duty4": "Monitorinq və qiymətləndirmənin aparılması",
     "gov2.sdcommittee.duty5": "Hesabatların hazırlanması və tərəfdaşlıqların inkişafı",
     "gov2.sdcommittee.duty6": "Milli və beynəlxalq təşəbbüslərin dəstəklənməsi",
+    "gov2.sdcommittee.duty7": "Ekoloji və sosial dayanıqlılıq üzrə illik təlimlərin keçirilməsi",
     "gov2.sdcommittee.composition": "Komitənin Tərkibi",
     "gov2.sdcommittee.charter": "Komitənin Əsasnaməsi",
 
@@ -1126,6 +1129,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "strat.goal4.desc": "Səmərəlilik tədbirləri vasitəsilə su istehlakını 40% azaltmaq.",
     "strat.goal5.title": "Hamı üçün Yaşıl Təhsil",
     "strat.goal5.desc": "Davamlılığı hər dərəcə proqramına inteqrasiya etmək.",
+    "strat.annualReport.title": "İllik Dayanıqlılıq Hesabatı 2025",
     "strat.section4.title": "DİM Hesabatları və İrəliləyiş",
     "strat.report1.title": "İllik Dayanıqlılıq Hesabatı 2024",
     "strat.report2.title": "DİM İrəliləyiş Hesabatı 2023",
@@ -1184,7 +1188,7 @@ export const translations: Record<Language, Record<string, string>> = {
     "res2.student5.title": "Qrant Alıcıları",
     "res2.performance.title": "DİM üzrə Tədqiqat Performansı",
     "res2.performance.desc": "SDU-nun tədqiqat performansı QS Dayanıqlılıq Reytinqləri çərçivəsində qiymətləndirilir və BMT-nin Dayanıqlı İnkişaf Məqsədlərinə töhfəmizi nümayiş etdirir.",
-    "res2.performance.report": "SDU QS Dayanıqlılıq Hesabatı",
+    "res2.performance.report": "SDU DİM üzrə Tədqiqat Performansı",
     "res2.cta": "Tədqiqat İmkanlarını Kəşf Edin",
 
     // Sustainable Education (Page 2) - AZ

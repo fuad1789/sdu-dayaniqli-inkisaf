@@ -77,6 +77,7 @@ export default function Navbar() {
       subLinks: [
         { name: t("edu2.section1.title"), id: "sustainability-topics" },
         { name: t("edu2.section2.title"), id: "courses-programs" },
+        { name: t("edu2.allCourses.title"), id: "sustainable-education" },
         { name: t("edu2.section3.title"), id: "student-initiatives" },
         { name: t("edu2.section5.title"), id: "workshops-seminars" },
       ],
