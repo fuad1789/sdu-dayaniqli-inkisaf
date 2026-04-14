@@ -22,6 +22,8 @@ import {
   Download,
   ClipboardList,
   BookOpen,
+  ExternalLink,
+  Mail,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -37,7 +39,7 @@ const fadeUp = {
 };
 
 export default function GovernanceAccountabilityPage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const policies = [
     { icon: Scale, title: t("gov2.policy1.title"), desc: t("gov2.policy1.desc"), color: "bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400", pdf: "/Student-Sustainability-Initiatives/Academic Freedom Policy_new.pdf" },
@@ -58,12 +60,16 @@ export default function GovernanceAccountabilityPage() {
     { icon: Globe, title: t("gov2.policy16.title"), desc: t("gov2.policy16.desc"), color: "bg-sky-50 dark:bg-sky-900/20 text-sky-600 dark:text-sky-400", pdf: "/Student-Sustainability-Initiatives/Internationalization_Policy.pdf" },
   ];
 
-  const centerActivities = [
-    t("gov2.center.activity1"),
-    t("gov2.center.activity2"),
-    t("gov2.center.activity3"),
-    t("gov2.center.activity4"),
-    t("gov2.center.activity5"),
+  const lang = language === "az" ? "az" : "en";
+  const centerEvents = [
+    { title: t("gov2.center.event1"), href: `https://sdu.edu.az/${lang}/news/3048` },
+    { title: t("gov2.center.event2"), href: `https://sdu.edu.az/${lang}/news/3045` },
+    { title: t("gov2.center.event3"), href: `https://sdu.edu.az/${lang}/news/3043` },
+    { title: t("gov2.center.event4"), href: `https://sdu.edu.az/${lang}/news/3041` },
+    { title: t("gov2.center.event5"), href: `https://sdu.edu.az/${lang}/news/2981` },
+    { title: t("gov2.center.event6"), href: `https://sdu.edu.az/${lang}/news/2780` },
+    { title: t("gov2.center.event7"), href: `https://sdu.edu.az/${lang}/news/2954` },
+    { title: t("gov2.center.event8"), href: `https://sdu.edu.az/${lang}/news/3071` },
   ];
 
   const committeeDuties = [
@@ -367,41 +373,56 @@ export default function GovernanceAccountabilityPage() {
                   <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{t("gov2.center.missionDesc")}</p>
                 </div>
               </div>
+              <div className="flex items-start gap-3">
+                <Mail className="w-5 h-5 text-emerald-500 mt-0.5 shrink-0" />
+                <div>
+                  <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">{t("gov2.center.contact")}</span>
+                  <div className="flex flex-col gap-1 mt-0.5">
+                    <a href="mailto:Azada.aliyeva@sdu.edu.az" className="text-blue-600 dark:text-blue-400 text-sm hover:underline">Azada.aliyeva@sdu.edu.az</a>
+                    <a href="mailto:sustainability@sdu.edu.az" className="text-blue-600 dark:text-blue-400 text-sm hover:underline">sustainability@sdu.edu.az</a>
+                  </div>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
 
-        {/* Center Activities Card — full width */}
+        {/* Events Card — full width */}
         <motion.div
           variants={fadeUp}
-          custom={1}
+          custom={2}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
           className="bg-white dark:bg-slate-800 rounded-2xl p-8 border border-slate-200 dark:border-slate-700"
         >
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center">
-              <Globe className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+            <div className="w-12 h-12 rounded-xl bg-orange-50 dark:bg-orange-900/20 flex items-center justify-center">
+              <Calendar className="w-6 h-6 text-orange-600 dark:text-orange-400" />
             </div>
             <h3 className="font-bold text-slate-900 dark:text-white text-xl">
-              {t("gov2.center.activities")}
+              {t("gov2.center.events")}
             </h3>
           </div>
           <div className="grid sm:grid-cols-2 gap-3">
-            {centerActivities.map((activity, i) => (
-              <motion.div
+            {centerEvents.map((event, i) => (
+              <motion.a
                 key={i}
+                href={event.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 custom={i + 2}
                 variants={fadeUp}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true }}
-                className="flex items-start gap-3 bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4"
+                className="flex items-start gap-3 bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4 hover:bg-orange-50 dark:hover:bg-orange-900/10 hover:shadow-md border border-transparent hover:border-orange-200 dark:hover:border-orange-800 transition-all group"
               >
-                <CheckCircle2 className="w-5 h-5 text-emerald-500 mt-0.5 shrink-0" />
-                <span className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">{activity}</span>
-              </motion.div>
+                <ExternalLink className="w-5 h-5 text-orange-500 mt-0.5 shrink-0 group-hover:text-orange-600" />
+                <span className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed group-hover:text-orange-700 dark:group-hover:text-orange-300 transition-colors">
+                  {event.title}
+                </span>
+              </motion.a>
             ))}
           </div>
         </motion.div>

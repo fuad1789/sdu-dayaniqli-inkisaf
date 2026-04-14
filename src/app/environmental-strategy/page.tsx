@@ -77,6 +77,12 @@ export default function StrategyReportingPage() {
     { title: "SDG 17 – Partnerships for the Goals", year: "2025", file: "/SDG Reports/SDG 17 - 2025.pdf" },
   ];
 
+  const financialReports = [
+    { title: t("strat.finreport1.title"), year: "2021", file: "/Student-Sustainability-Initiatives/Financial report 2021.pdf" },
+    { title: t("strat.finreport2.title"), year: "2022", file: "/Student-Sustainability-Initiatives/SDU Financial report 2022.pdf" },
+    { title: t("strat.finreport3.title"), year: "2023", file: "/Student-Sustainability-Initiatives/SDU Financial report 2023.pdf" },
+  ];
+
   const indicatorIcons = [TrendingUp, Zap, Leaf, Droplets, BookOpen, Users];
   const indicators = [
     t("strat.indicator1"),
@@ -277,6 +283,46 @@ export default function StrategyReportingPage() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Financial Reports */}
+      <section id="financial-reports" className="max-w-4xl mx-auto px-4 py-20 scroll-mt-24">
+        <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-8 text-center">
+          {t("strat.financial.title")}
+        </h2>
+        <div className="space-y-4">
+          {financialReports.map((r, i) => (
+            <motion.div
+              key={r.title}
+              custom={i}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              className="flex items-center justify-between bg-slate-50 dark:bg-slate-800 rounded-xl px-5 py-4 border border-slate-200 dark:border-slate-700 hover:border-blue-400 dark:hover:border-blue-500 transition-colors group"
+            >
+              <div className="flex items-center gap-4">
+                <BarChart3 className="w-5 h-5 text-blue-500 shrink-0" />
+                <div>
+                  <p className="font-medium text-slate-900 dark:text-white text-sm">
+                    {r.title}
+                  </p>
+                  <p className="text-xs text-slate-400 mt-0.5">{r.year}</p>
+                </div>
+              </div>
+              <a
+                href={encodeURI(r.file)}
+                target="_blank"
+                rel="noopener noreferrer"
+                download
+                className="flex items-center gap-2 text-xs font-semibold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 px-3 py-1.5 rounded-lg group-hover:bg-blue-600 group-hover:text-white transition-all"
+              >
+                <Download className="w-4 h-4" />
+                {t("strat.download")}
+              </a>
+            </motion.div>
+          ))}
         </div>
       </section>
 

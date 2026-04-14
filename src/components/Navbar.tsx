@@ -55,6 +55,7 @@ export default function Navbar() {
         { name: t("strat.section2.title"), id: "sdg-alignment" },
         { name: t("strat.section3.title"), id: "sustainability-goals" },
         { name: t("strat.section4.title"), id: "sdg-reports" },
+        { name: t("strat.financial.title"), id: "financial-reports" },
         { name: t("strat.section5.title"), id: "key-indicators" },
       ],
     },
@@ -67,6 +68,7 @@ export default function Navbar() {
         { name: t("res2.section3.title"), id: "research-partnerships" },
         { name: t("res2.section4.title"), id: "research-centres" },
         { name: t("res2.section5.title"), id: "student-research" },
+        { name: t("res2.performance.title"), id: "research-performance" },
       ],
     },
     {
