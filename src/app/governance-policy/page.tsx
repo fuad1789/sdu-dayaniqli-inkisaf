@@ -21,6 +21,7 @@ import {
   CheckCircle2,
   Download,
   ClipboardList,
+  BookOpen,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -183,6 +184,116 @@ export default function GovernanceAccountabilityPage() {
               </motion.a>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Scientific Council */}
+      <section id="scientific-council" className="max-w-6xl mx-auto px-4 py-20 scroll-mt-24">
+        <div className="text-center mb-14">
+          <div className="inline-flex items-center gap-2 bg-amber-50 dark:bg-amber-900/20 rounded-full px-4 py-1.5 text-sm font-semibold text-amber-700 dark:text-amber-400 mb-4">
+            <BookOpen className="w-4 h-4" /> {t("gov2.scicouncil.title")}
+          </div>
+          <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-3">
+            {t("gov2.scicouncil.title")}
+          </h2>
+          <p className="text-slate-500 dark:text-slate-400 max-w-3xl mx-auto">
+            {t("gov2.scicouncil.desc")}
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-8">
+          {/* Meeting Protocols */}
+          <motion.div
+            variants={fadeUp}
+            custom={0}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="bg-white dark:bg-slate-800 rounded-2xl p-8 border border-slate-200 dark:border-slate-700"
+          >
+            <h3 className="font-bold text-slate-900 dark:text-white text-lg mb-6 flex items-center gap-2">
+              <ClipboardList className="w-5 h-5 text-amber-600 dark:text-amber-400" />
+              {t("gov2.scicouncil.meetings")}
+            </h3>
+            <div className="space-y-3">
+              {[
+                { label: t("gov2.scicouncil.members"), pdf: "/Student-Sustainability-Initiatives/Scientific Council Members.pdf", color: "bg-purple-50 dark:bg-purple-900/20", iconColor: "text-purple-600 dark:text-purple-400" },
+                { label: t("gov2.scicouncil.meeting.mar"), pdf: "/Student-Sustainability-Initiatives/Scientific Council Mart 12.pdf", color: "bg-emerald-50 dark:bg-emerald-900/20", iconColor: "text-emerald-600 dark:text-emerald-400" },
+                { label: t("gov2.scicouncil.meeting.jul"), pdf: "/Student-Sustainability-Initiatives/Scientific Council July 11.pdf", color: "bg-blue-50 dark:bg-blue-900/20", iconColor: "text-blue-600 dark:text-blue-400" },
+                { label: t("gov2.scicouncil.meeting.sep"), pdf: "/Student-Sustainability-Initiatives/Scientific Council September 10.pdf", color: "bg-orange-50 dark:bg-orange-900/20", iconColor: "text-orange-600 dark:text-orange-400" },
+                { label: t("gov2.scicouncil.meeting.dec"), pdf: "/Student-Sustainability-Initiatives/Scientific Council December 17.pdf", color: "bg-red-50 dark:bg-red-900/20", iconColor: "text-red-600 dark:text-red-400" },
+              ].map((item, i) => (
+                <motion.a
+                  key={item.label}
+                  href={item.pdf}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  custom={i}
+                  variants={fadeUp}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true }}
+                  className="flex items-center gap-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4 hover:shadow-md hover:border-amber-300 dark:hover:border-amber-700 border border-transparent transition-all group"
+                >
+                  <div className={`w-10 h-10 rounded-lg ${item.color} flex items-center justify-center shrink-0`}>
+                    <Download className={`w-5 h-5 ${item.iconColor}`} />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h4 className="font-semibold text-slate-900 dark:text-white text-sm group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors truncate">
+                      {item.label}
+                    </h4>
+                    <span className="text-xs text-slate-400">PDF</span>
+                  </div>
+                </motion.a>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Meeting Summaries */}
+          <motion.div
+            variants={fadeUp}
+            custom={1}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="bg-white dark:bg-slate-800 rounded-2xl p-8 border border-slate-200 dark:border-slate-700"
+          >
+            <h3 className="font-bold text-slate-900 dark:text-white text-lg mb-6 flex items-center gap-2">
+              <FileText className="w-5 h-5 text-amber-600 dark:text-amber-400" />
+              {t("gov2.scicouncil.summaries")}
+            </h3>
+            <div className="space-y-3">
+              {[
+                { label: t("gov2.scicouncil.summary.mar"), pdf: "/Student-Sustainability-Initiatives/Summary_12Mart25.pdf", color: "bg-emerald-50 dark:bg-emerald-900/20", iconColor: "text-emerald-600 dark:text-emerald-400" },
+                { label: t("gov2.scicouncil.summary.jul"), pdf: "/Student-Sustainability-Initiatives/Summary_11Iyul25.pdf", color: "bg-blue-50 dark:bg-blue-900/20", iconColor: "text-blue-600 dark:text-blue-400" },
+                { label: t("gov2.scicouncil.summary.sep"), pdf: "/Student-Sustainability-Initiatives/Summary_10Sept25.pdf", color: "bg-orange-50 dark:bg-orange-900/20", iconColor: "text-orange-600 dark:text-orange-400" },
+                { label: t("gov2.scicouncil.summary.dec"), pdf: "/Student-Sustainability-Initiatives/Summary_17Dec25.pdf", color: "bg-red-50 dark:bg-red-900/20", iconColor: "text-red-600 dark:text-red-400" },
+              ].map((item, i) => (
+                <motion.a
+                  key={item.label}
+                  href={item.pdf}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  custom={i}
+                  variants={fadeUp}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true }}
+                  className="flex items-center gap-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4 hover:shadow-md hover:border-amber-300 dark:hover:border-amber-700 border border-transparent transition-all group"
+                >
+                  <div className={`w-10 h-10 rounded-lg ${item.color} flex items-center justify-center shrink-0`}>
+                    <Download className={`w-5 h-5 ${item.iconColor}`} />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h4 className="font-semibold text-slate-900 dark:text-white text-sm group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors truncate">
+                      {item.label}
+                    </h4>
+                    <span className="text-xs text-slate-400">PDF</span>
+                  </div>
+                </motion.a>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 

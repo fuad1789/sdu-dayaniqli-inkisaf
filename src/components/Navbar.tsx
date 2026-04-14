@@ -41,6 +41,7 @@ export default function Navbar() {
       subLinks: [
         { name: t("gov2.section1.title"), id: "institutional-governance" },
         { name: t("gov2.section2.title"), id: "key-policies" },
+        { name: t("gov2.scicouncil.title"), id: "scientific-council" },
         { name: t("gov2.center.title"), id: "sustainability-center" },
         { name: t("gov2.sdcommittee.title"), id: "sd-committee" },
         { name: t("gov2.section4.title"), id: "institutional-commitments" },

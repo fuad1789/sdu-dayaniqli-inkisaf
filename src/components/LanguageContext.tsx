@@ -377,6 +377,21 @@ export const translations: Record<Language, Record<string, string>> = {
     "gov2.sdcommittee.composition": "Committee Composition",
     "gov2.sdcommittee.charter": "Committee Charter",
 
+    // Scientific Council
+    "gov2.scicouncil.title": "Scientific Council",
+    "gov2.scicouncil.desc": "The Scientific Council is the highest collegial governing body of Sumgayit State University, responsible for strategic academic and institutional decisions.",
+    "gov2.scicouncil.meetings": "Meeting Protocols",
+    "gov2.scicouncil.summaries": "Meeting Summaries",
+    "gov2.scicouncil.members": "Scientific Council Members",
+    "gov2.scicouncil.meeting.jul": "Scientific Council — July 11",
+    "gov2.scicouncil.meeting.mar": "Scientific Council — March 12",
+    "gov2.scicouncil.meeting.sep": "Scientific Council — September 10",
+    "gov2.scicouncil.meeting.dec": "Scientific Council — December 17",
+    "gov2.scicouncil.summary.jul": "Summary — July 11, 2025",
+    "gov2.scicouncil.summary.mar": "Summary — March 12, 2025",
+    "gov2.scicouncil.summary.sep": "Summary — September 10, 2025",
+    "gov2.scicouncil.summary.dec": "Summary — December 17, 2025",
+
     // Internationalization Policy
     "gov2.policy16.title": "Internationalization Policy",
     "gov2.policy16.desc": "Strategic policy guiding the university's internationalization efforts, including academic exchange programs, global partnerships, and cross-border research collaboration.",
@@ -1042,6 +1057,21 @@ export const translations: Record<Language, Record<string, string>> = {
     "gov2.sdcommittee.duty6": "Milli və beynəlxalq təşəbbüslərin dəstəklənməsi",
     "gov2.sdcommittee.composition": "Komitənin Tərkibi",
     "gov2.sdcommittee.charter": "Komitənin Əsasnaməsi",
+
+    // Elmi Şura
+    "gov2.scicouncil.title": "Elmi Şura",
+    "gov2.scicouncil.desc": "Elmi Şura Sumqayıt Dövlət Universitetinin strateji akademik və institusional qərarların qəbuluna cavabdeh olan ən yüksək kollegial idarəetmə orqanıdır.",
+    "gov2.scicouncil.meetings": "İclas Protokolları",
+    "gov2.scicouncil.summaries": "İclas Xülasələri",
+    "gov2.scicouncil.members": "Elmi Şuranın Üzvləri",
+    "gov2.scicouncil.meeting.jul": "Elmi Şura — İyul 11",
+    "gov2.scicouncil.meeting.mar": "Elmi Şura — Mart 12",
+    "gov2.scicouncil.meeting.sep": "Elmi Şura — Sentyabr 10",
+    "gov2.scicouncil.meeting.dec": "Elmi Şura — Dekabr 17",
+    "gov2.scicouncil.summary.jul": "Xülasə — 11 İyul 2025",
+    "gov2.scicouncil.summary.mar": "Xülasə — 12 Mart 2025",
+    "gov2.scicouncil.summary.sep": "Xülasə — 10 Sentyabr 2025",
+    "gov2.scicouncil.summary.dec": "Xülasə — 17 Dekabr 2025",
 
     // Beynəlmiləlləşmə Siyasəti
     "gov2.policy16.title": "Beynəlmiləlləşmə Siyasəti",
