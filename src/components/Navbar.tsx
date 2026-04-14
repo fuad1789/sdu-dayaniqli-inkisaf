@@ -51,6 +51,7 @@ export default function Navbar() {
       name: t("nav.strat"),
       href: "/environmental-strategy",
       subLinks: [
+        { name: t("strat.annualReport.title"), id: "annual-report" },
         { name: t("strat.section1.title"), id: "climate-action-strategy" },
         { name: t("strat.section2.title"), id: "sdg-alignment" },
         { name: t("strat.section3.title"), id: "sustainability-goals" },
