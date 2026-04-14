@@ -130,30 +130,47 @@ export default function StrategyReportingPage() {
         </div>
       </section>
 
-      {/* Annual Sustainability Report */}
+      {/* Annual Sustainability Reports */}
       <section id="annual-report" className="max-w-4xl mx-auto px-4 pt-16 pb-8 scroll-mt-24">
-        <motion.a
-          href="/Student-Sustainability-Initiatives/Annual Sustainability Report 2025.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          variants={fadeUp}
-          custom={0}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="flex items-center gap-5 bg-emerald-50 dark:bg-emerald-900/20 rounded-2xl px-6 py-5 border-2 border-emerald-300 dark:border-emerald-700 hover:shadow-lg transition-all group"
-        >
-          <div className="w-14 h-14 rounded-xl bg-emerald-100 dark:bg-emerald-800/40 flex items-center justify-center shrink-0">
-            <BarChart3 className="w-7 h-7 text-emerald-600 dark:text-emerald-400" />
-          </div>
-          <div className="flex-1">
-            <h3 className="font-bold text-slate-900 dark:text-white text-lg group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
-              {t("strat.annualReport.title")}
-            </h3>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">2025 · PDF</p>
-          </div>
-          <Download className="w-5 h-5 text-emerald-500 shrink-0" />
-        </motion.a>
+        <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-8 text-center">
+          {t("strat.annualReports.title")}
+        </h2>
+        <div className="space-y-4">
+          {[
+            { title: t("strat.annualReport2025.title"), year: "2025", file: "/Student-Sustainability-Initiatives/Annual Sustainability Report 2025.pdf" },
+            { title: t("strat.annualReport2024.title"), year: "2024", file: "/Student-Sustainability-Initiatives/Annual Sustainability Report 2024.pdf" },
+          ].map((r, i) => (
+            <motion.div
+              key={r.year}
+              custom={i}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              className="flex items-center justify-between bg-slate-50 dark:bg-slate-800 rounded-xl px-5 py-4 border border-slate-200 dark:border-slate-700 hover:border-emerald-400 dark:hover:border-emerald-500 transition-colors group"
+            >
+              <div className="flex items-center gap-4">
+                <BarChart3 className="w-5 h-5 text-emerald-500 shrink-0" />
+                <div>
+                  <p className="font-medium text-slate-900 dark:text-white text-sm">
+                    {r.title}
+                  </p>
+                  <p className="text-xs text-slate-400 mt-0.5">{r.year}</p>
+                </div>
+              </div>
+              <a
+                href={encodeURI(r.file)}
+                target="_blank"
+                rel="noopener noreferrer"
+                download
+                className="flex items-center gap-2 text-xs font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/20 px-3 py-1.5 rounded-lg group-hover:bg-emerald-600 group-hover:text-white transition-all"
+              >
+                <Download className="w-4 h-4" />
+                {t("strat.download")}
+              </a>
+            </motion.div>
+          ))}
+        </div>
       </section>
 
       {/* Climate Action & Sustainability Strategy */}
